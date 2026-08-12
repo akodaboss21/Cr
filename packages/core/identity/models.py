@@ -17,6 +17,8 @@ class Organization(Base):
     
     id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
     name = Column(String(255), nullable=False)
+    is_active = Column(Boolean, default=False)  # Organization activated after onboarding
+    activated_at = Column(DateTime, nullable=True)  # When organization was activated
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
     

@@ -190,8 +190,14 @@ class OnboardingService:
         
         self._save_onboarding(onboarding)
         
-        # Activate receptionist (would involve setting up AI agent, etc.)
-        # self._activate_receptionist(onboarding['organization_id'], brand_profile, theme, voice_profile, knowledge_base)
+        # Enqueue activation job for background processing
+        self._activate_receptionist_async(
+            onboarding['organization_id'], 
+            brand_profile, 
+            theme, 
+            voice_profile, 
+            knowledge_base
+        )
         
         return {
             'onboarding_id': onboarding_id,
@@ -226,9 +232,59 @@ class OnboardingService:
     
     def _activate_receptionist(self, organization_id: str, brand_profile: Dict, theme: Dict, 
                               voice_profile: Dict, knowledge_base: Dict):
-        """Activate the AI receptionist for the business"""
-        # Implementation would set up the AI agent with the generated profile
-        pass
+        """Activate the AI receptionist for the business (synchronous wrapper)"""
+        # This is kept for compatibility but delegates to async version
+        self._activate_receptionist_async(
+            organization_id, brand_profile, theme, voice_profile, knowledge_base
+        )
+    
+    def _activate_receptionist_async(self, organization_id: str, brand_profile: Dict, theme: Dict,
+                                     voice_profile: Dict, knowledge_base: Dict):
+        """
+        Enqueue background job for AI receptionist activation
+        
+        Creates a background job that will:
+        1. Generate embeddings for knowledge base
+        2. Build agent configuration
+        3. Mark organization as active
+        
+        Args:
+            organization_id: Organization ID
+            brand_profile: Brand profile data
+            theme: Generated theme
+            voice_profile: AI voice profile
+            knowledge_base: Generated knowledge base
+        """
+        try:
+            from packages.core.identity.background_workers.job_manager import JobManager
+            from packages.core.database import SessionLocal
+            
+            # Get a database session for job enqueueing
+            db = SessionLocal()
+            
+            try:
+                job_manager = JobManager(db)
+                
+                # Enqueue the onboarding activation job
+                job_id = job_manager.enqueue(
+                    organization_id=organization_id,
+                    task_type=JobManager.TASK_ONBOARDING_ACTIVATE,
+                    task_data={
+                        "brand_profile": brand_profile,
+                        "theme": theme,
+                        "voice_profile": voice_profile,
+                        "knowledge_base": knowledge_base
+                    },
+                    max_retries=3
+                )
+                
+                print(f"[INFO] Onboarding activation job enqueued: {job_id} for org {organization_id}")
+            
+            finally:
+                db.close()
+        
+        except Exception as e:
+            print(f"[ERROR] Failed to enqueue activation job: {str(e)}")
 
 # Global onboarding service instance
 onboarding_service = OnboardingService
