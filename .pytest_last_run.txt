@@ -1,0 +1,230 @@
+FFFFFFFFF                                                                [100%]
+=================================== FAILURES ===================================
+__________________________ test_new_customer_creation __________________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+______________________ test_returning_customer_detection _______________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+____________________ test_lead_creation_from_buying_intent _____________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+_______________________ test_lead_conversion_to_customer _______________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+________________________ test_customer_history_tracking ________________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+________________________ test_customer_search_by_email _________________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+________________________ test_customer_search_by_phone _________________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+_________________________ test_customer_search_by_name _________________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+__________________________ test_customer_segmentation __________________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+=============================== warnings summary ===============================
+../../usr/local/python/3.12.1/lib/python3.12/site-packages/sqlalchemy/sql/sqltypes.py:2070
+  /usr/local/python/3.12.1/lib/python3.12/site-packages/sqlalchemy/sql/sqltypes.py:2070: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+    epoch = dt.datetime.utcfromtimestamp(0)
+
+packages/core/config.py:5
+  /workspaces/CR/packages/core/config.py:5: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    class Settings(BaseSettings):
+
+packages/core/identity/crm/schemas.py:59
+  /workspaces/CR/packages/core/identity/crm/schemas.py:59: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    class CRMResponse(CRMBase):
+
+../../usr/local/python/3.12.1/lib/python3.12/site-packages/pydantic/_internal/_config.py:386
+  /usr/local/python/3.12.1/lib/python3.12/site-packages/pydantic/_internal/_config.py:386: UserWarning: Valid config keys have changed in V2:
+  * 'orm_mode' has been renamed to 'from_attributes'
+    warnings.warn(message, UserWarning)
+
+../../usr/local/python/3.12.1/lib/python3.12/site-packages/passlib/utils/__init__.py:854
+  /usr/local/python/3.12.1/lib/python3.12/site-packages/passlib/utils/__init__.py:854: DeprecationWarning: 'crypt' is deprecated and slated for removal in Python 3.13
+    from crypt import crypt as _crypt
+
+packages/core/identity/ai_gateway/schemas.py:25
+  /workspaces/CR/packages/core/identity/ai_gateway/schemas.py:25: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    class AIProviderResponse(AIProviderBase):
+
+packages/core/identity/ai_gateway/schemas.py:55
+  /workspaces/CR/packages/core/identity/ai_gateway/schemas.py:55: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    class PromptTemplateResponse(PromptTemplateBase):
+
+packages/core/identity/ai_gateway/schemas.py:77
+  /workspaces/CR/packages/core/identity/ai_gateway/schemas.py:77: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    class AIUsageResponse(AIUsageBase):
+
+packages/core/identity/background_workers/schemas.py:24
+  /workspaces/CR/packages/core/identity/background_workers/schemas.py:24: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    class BackgroundWorkerResponse(BackgroundWorkerBase):
+
+packages/core/identity/background_workers/schemas.py:64
+  /workspaces/CR/packages/core/identity/background_workers/schemas.py:64: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    class BackgroundJobResponse(BackgroundJobBase):
+
+packages/core/identity/booking/schemas.py:33
+  /workspaces/CR/packages/core/identity/booking/schemas.py:33: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    class BookingResponse(BookingBase):
+
+packages/core/identity/business/schemas.py:55
+  /workspaces/CR/packages/core/identity/business/schemas.py:55: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    class BusinessProfileResponse(BusinessProfileBase):
+
+packages/core/identity/conversation/schemas.py:19
+  /workspaces/CR/packages/core/identity/conversation/schemas.py:19: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    class MessageResponse(MessageBase):
+
+packages/core/identity/conversation/schemas.py:43
+  /workspaces/CR/packages/core/identity/conversation/schemas.py:43: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    class ConversationResponse(ConversationBase):
+
+packages/core/identity/integration/schemas.py:25
+  /workspaces/CR/packages/core/identity/integration/schemas.py:25: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    class IntegrationResponse(IntegrationBase):
+
+packages/core/identity/knowledge/schemas.py:31
+  /workspaces/CR/packages/core/identity/knowledge/schemas.py:31: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    class KnowledgeResponse(KnowledgeBase):
+
+packages/core/identity/schemas.py:90
+  /workspaces/CR/packages/core/identity/schemas.py:90: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    class UserResponse(UserBase):
+
+packages/core/identity/schemas.py:109
+  /workspaces/CR/packages/core/identity/schemas.py:109: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    class OrganizationResponse(OrganizationBase):
+
+packages/core/identity/schemas.py:138
+  /workspaces/CR/packages/core/identity/schemas.py:138: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    class AuditLogResponse(BaseModel):
+
+packages/core/identity/schemas.py:163
+  /workspaces/CR/packages/core/identity/schemas.py:163: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    class InvitationResponse(BaseModel):
+
+packages/core/identity/schemas.py:182
+  /workspaces/CR/packages/core/identity/schemas.py:182: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    class RoleResponse(RoleBase):
+
+packages/core/identity/schemas.py:195
+  /workspaces/CR/packages/core/identity/schemas.py:195: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    class PermissionResponse(PermissionBase):
+
+tests/crm/test_crm_system.py:116
+  /workspaces/CR/tests/crm/test_crm_system.py:116: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.asyncio
+
+tests/crm/test_crm_system.py:130
+  /workspaces/CR/tests/crm/test_crm_system.py:130: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.asyncio
+
+tests/crm/test_crm_system.py:147
+  /workspaces/CR/tests/crm/test_crm_system.py:147: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.asyncio
+
+tests/crm/test_crm_system.py:189
+  /workspaces/CR/tests/crm/test_crm_system.py:189: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.asyncio
+
+tests/crm/test_crm_system.py:223
+  /workspaces/CR/tests/crm/test_crm_system.py:223: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.asyncio
+
+tests/crm/test_crm_system.py:245
+  /workspaces/CR/tests/crm/test_crm_system.py:245: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.asyncio
+
+tests/crm/test_crm_system.py:259
+  /workspaces/CR/tests/crm/test_crm_system.py:259: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.asyncio
+
+tests/crm/test_crm_system.py:273
+  /workspaces/CR/tests/crm/test_crm_system.py:273: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.asyncio
+
+tests/crm/test_crm_system.py:287
+  /workspaces/CR/tests/crm/test_crm_system.py:287: PytestUnknownMarkWarning: Unknown pytest.mark.asyncio - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.asyncio
+
+tests/crm/test_crm_system.py::test_new_customer_creation
+tests/crm/test_crm_system.py::test_returning_customer_detection
+tests/crm/test_crm_system.py::test_customer_history_tracking
+tests/crm/test_crm_system.py::test_customer_search_by_email
+tests/crm/test_crm_system.py::test_customer_search_by_phone
+tests/crm/test_crm_system.py::test_customer_search_by_name
+  /workspaces/CR/tests/crm/test_crm_system.py:105: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    "first_interaction": datetime.utcnow(),
+
+tests/crm/test_crm_system.py::test_new_customer_creation
+tests/crm/test_crm_system.py::test_returning_customer_detection
+tests/crm/test_crm_system.py::test_customer_history_tracking
+tests/crm/test_crm_system.py::test_customer_search_by_email
+tests/crm/test_crm_system.py::test_customer_search_by_phone
+tests/crm/test_crm_system.py::test_customer_search_by_name
+  /workspaces/CR/tests/crm/test_crm_system.py:106: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    "last_interaction": datetime.utcnow(),
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/crm/test_crm_system.py::test_new_customer_creation - Failed: asy...
+FAILED tests/crm/test_crm_system.py::test_returning_customer_detection - Fail...
+FAILED tests/crm/test_crm_system.py::test_lead_creation_from_buying_intent - ...
+FAILED tests/crm/test_crm_system.py::test_lead_conversion_to_customer - Faile...
+FAILED tests/crm/test_crm_system.py::test_customer_history_tracking - Failed:...
+FAILED tests/crm/test_crm_system.py::test_customer_search_by_email - Failed: ...
+FAILED tests/crm/test_crm_system.py::test_customer_search_by_phone - Failed: ...
+FAILED tests/crm/test_crm_system.py::test_customer_search_by_name - Failed: a...
+FAILED tests/crm/test_crm_system.py::test_customer_segmentation - Failed: asy...
+9 failed, 43 warnings in 0.96s

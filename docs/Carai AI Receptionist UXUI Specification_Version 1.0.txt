@@ -1,0 +1,482 @@
+Document 6
+
+Carai AI Receptionist UX/UI Specification
+
+Version 1.0
+
+
+---
+
+UX Philosophy
+
+Carai should feel like:
+
+Professional business software
+
+Simple enough for a salon owner
+
+Powerful enough for enterprise teams
+
+
+The user should never feel like they are "configuring AI."
+
+They should feel like:
+
+> "I hired a digital employee."
+
+
+
+
+---
+
+Primary Users
+
+Business Owner
+
+Needs:
+
+Confidence
+
+Simplicity
+
+Visibility
+
+Control
+
+
+
+---
+
+Staff
+
+Needs:
+
+Speed
+
+Customer context
+
+Appointment management
+
+
+
+---
+
+Customer
+
+Needs:
+
+Fast answers
+
+Easy booking
+
+Human-like interaction
+
+
+
+---
+
+Application Structure
+
+Carai Dashboard
+
+├── Home
+├── Inbox
+├── Customers
+├── Leads
+├── Appointments
+├── Knowledge
+├── Products
+├── Analytics
+├── Automations
+├── Team
+├── Integrations
+├── Billing
+└── Settings
+
+
+---
+
+1. Onboarding Flow
+
+Goal:
+
+A business should activate their AI receptionist in under 15 minutes.
+
+
+---
+
+Step 1
+
+Create Account
+
+Fields:
+
+Name
+
+Email
+
+Password / Magic Link
+
+
+
+---
+
+Step 2
+
+Business Type
+
+Choose:
+
+💇 Hair Salon
+
+💈 Barbershop
+
+💄 Beauty Studio
+
+💅 Nail Salon
+
+🛍️ Retail / Wholesale
+
+
+---
+
+Step 3
+
+Business Information
+
+Collect:
+
+Name
+
+Logo
+
+Location
+
+Hours
+
+Phone
+
+Website
+
+
+
+---
+
+Step 4
+
+Services / Products
+
+For salons:
+
+Service name
+
+Duration
+
+Price
+
+
+For retail:
+
+Product name
+
+SKU
+
+Price
+
+Stock
+
+
+
+---
+
+Step 5
+
+Train AI
+
+Upload:
+
+FAQ
+
+Policies
+
+Documents
+
+Website
+
+
+
+---
+
+Step 6
+
+Install Chat Widget
+
+Generate:
+
+Website script
+
+Branding options
+
+
+
+---
+
+2. Dashboard
+
+Purpose:
+
+Give business owners immediate value.
+
+
+---
+
+Main Cards
+
+Today's:
+
+Conversations
+
+Leads
+
+Appointments
+
+Revenue opportunities
+
+AI response rate
+
+
+
+---
+
+AI Status
+
+Shows:
+
+🟢 Online
+
+Model:
+
+GPT / Ollama / Custom
+
+Response speed
+
+Usage
+
+
+---
+
+3. Inbox
+
+Similar to modern messaging apps.
+
+Layout:
+
+Customers
+
+|
+
+Conversation
+
+|
+
+AI Actions
+
+
+---
+
+Features:
+
+Search
+
+Filters
+
+Assign staff
+
+Human takeover
+
+Conversation summary
+
+Customer profile
+
+
+
+---
+
+4. Customer Profile
+
+Shows:
+
+Name
+
+Contact
+
+History
+
+Appointments
+
+Purchases
+
+Preferences
+
+Notes
+
+
+
+---
+
+5. Knowledge Base
+
+Simple interface.
+
+Tabs:
+
+FAQs
+
+Services
+
+Products
+
+Policies
+
+Documents
+
+
+
+---
+
+Actions:
+
+Add
+
+Edit
+
+Delete
+
+Train AI
+
+Test AI
+
+
+---
+
+6. AI Settings
+
+Business owners control:
+
+Personality:
+
+Friendly
+
+Professional
+
+Luxury
+
+Casual
+
+
+---
+
+Controls:
+
+Greeting
+
+Languages
+
+Escalation rules
+
+Working hours
+
+Allowed actions
+
+
+---
+
+7. Appointment Screen
+
+Calendar view:
+
+Day
+
+Week
+
+Month
+
+
+---
+
+Features:
+
+Create booking
+
+Confirm
+
+Cancel
+
+Assign staff
+
+Customer notes
+
+
+
+---
+
+8. Analytics
+
+Simple first.
+
+Metrics:
+
+Conversations
+
+Leads
+
+Bookings
+
+Conversion rate
+
+Common questions
+
+AI accuracy
+
+
+
+---
+
+9. Mobile Experience
+
+Mobile-first.
+
+Bottom navigation:
+
+Home
+
+Inbox
+
+Bookings
+
+Customers
+
+More
+
+
+---
+
+10. AI Chat Widget
+
+Must feel premium.
+
+Features:
+
+Custom colors
+
+Logo
+
+Welcome message
+
+Typing indicator
+
+Suggested questions
+
+File upload future
+
+Voice future

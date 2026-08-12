@@ -1,0 +1,757 @@
+Now we move into the final engineering stage before customer acquisition:
+
+Document 22
+
+Carai AI Receptionist Integration, Deployment & Launch Specification
+
+Version 1.0
+
+Goal:
+
+Take the completed backend + frontend and turn it into a real SaaS product that customers can use and pay for.
+
+
+---
+
+PART 1 — FRONTEND ↔ BACKEND INTEGRATION
+
+Prompt 22.1 — API Integration Layer
+
+Paste into Windsurf:
+
+You are a senior full-stack engineer.
+
+Integrate the Carai frontend with the FastAPI backend.
+
+Requirements:
+
+Use:
+
+TanStack Query
+TypeScript
+Zod validation
+
+
+Create:
+
+src/lib/api/
+
+├── client.ts
+├── auth.ts
+├── businesses.ts
+├── customers.ts
+├── conversations.ts
+├── bookings.ts
+├── knowledge.ts
+├── ai.ts
+├── billing.ts
+
+
+Requirements:
+
+- Central API client.
+- Automatic authentication headers.
+- Error normalization.
+- Request cancellation.
+- Loading states.
+- Retry handling.
+
+
+Replace all mock data.
+
+Every screen must use real backend APIs.
+
+Do not place API calls directly inside components.
+
+
+---
+
+PART 2 — SUPABASE PRODUCTION CONFIGURATION
+
+Prompt 22.2 — Production Database Setup
+
+Configure Supabase production environment.
+
+Requirements:
+
+Create production database configuration.
+
+Enable:
+
+- PostgreSQL
+- Row Level Security
+- Storage
+- pgvector
+
+
+Implement RLS policies for:
+
+organizations
+
+users
+
+businesses
+
+customers
+
+conversations
+
+messages
+
+knowledge
+
+
+Rules:
+
+Users can only access organizations they belong to.
+
+No cross-tenant data access.
+
+
+Create migration documentation.
+
+Verify policies.
+
+
+---
+
+PART 3 — STORAGE SYSTEM
+
+Carai needs storage for:
+
+Logos
+
+Knowledge documents
+
+Images
+
+Future Atelier assets
+
+
+
+---
+
+Prompt 22.3
+
+Implement Supabase Storage integration.
+
+
+Create buckets:
+
+business-assets
+
+knowledge-documents
+
+customer-files
+
+
+Requirements:
+
+- Upload
+- Delete
+- Access control
+- Signed URLs
+
+
+Validate:
+
+File size
+
+File type
+
+Permissions
+
+
+Add tests.
+
+
+---
+
+PART 4 — BACKGROUND WORKERS WITH PYRUNNER
+
+This is where your PyRunner experience becomes valuable.
+
+Use PyRunner as the execution layer.
+
+
+---
+
+Prompt 22.4
+
+Integrate PyRunner as Carai background execution engine.
+
+
+Responsibilities:
+
+Long-running AI tasks.
+
+Document processing.
+
+Embedding generation.
+
+Scheduled follow-ups.
+
+Analytics processing.
+
+Notification sending.
+
+
+Create jobs:
+
+process_document()
+
+generate_embeddings()
+
+send_notification()
+
+calculate_daily_metrics()
+
+cleanup_expired_data()
+
+
+Requirements:
+
+Jobs must be:
+
+Retryable.
+
+Logged.
+
+Auditable.
+
+Idempotent.
+
+
+Do not put long-running tasks inside FastAPI requests.
+
+
+---
+
+PART 5 — REALTIME FEATURES
+
+Prompt 22.5
+
+Implement realtime communication.
+
+
+Use:
+
+Supabase Realtime
+
+
+Support:
+
+New messages.
+
+Conversation updates.
+
+Booking updates.
+
+Notifications.
+
+
+Requirements:
+
+Inbox updates instantly.
+
+No manual refresh.
+
+Handle reconnects.
+
+Add loading states.
+
+
+---
+
+PART 6 — AI PRODUCTION CONFIGURATION
+
+Prompt 22.6
+
+Prepare AI Runtime for production.
+
+
+Implement:
+
+Provider configuration.
+
+Model selection.
+
+Fallback handling.
+
+Usage tracking.
+
+Credit deduction.
+
+
+Support:
+
+OpenAI compatible providers.
+
+Ollama servers.
+
+
+Environment variables:
+
+OPENAI_API_KEY
+
+OLLAMA_BASE_URL
+
+AI_DEFAULT_MODEL
+
+
+Requirements:
+
+Never expose provider keys to frontend.
+
+All requests go through backend.
+
+
+---
+
+PART 7 — SECURITY HARDENING
+
+Prompt 22.7
+
+Perform production security hardening.
+
+
+Backend:
+
+Implement:
+
+Rate limiting.
+
+Request validation.
+
+Security headers.
+
+CORS restrictions.
+
+Input sanitization.
+
+Audit logging.
+
+
+Frontend:
+
+Prevent:
+
+XSS
+
+unsafe rendering
+
+token exposure
+
+
+Database:
+
+Verify RLS.
+
+Verify tenant isolation.
+
+
+Generate security report.
+
+
+---
+
+PART 8 — DOCKER PRODUCTION SETUP
+
+Prompt 22.8
+
+Create production Docker configuration.
+
+
+Services:
+
+frontend
+
+backend
+
+worker
+
+nginx
+
+
+Create:
+
+docker-compose.production.yml
+
+
+Requirements:
+
+Environment variables.
+
+Health checks.
+
+Restart policies.
+
+Logging.
+
+Resource limits.
+
+
+Application must start with:
+
+docker compose up -d
+
+
+---
+
+PART 9 — NGINX CONFIGURATION
+
+Prompt 22.9
+
+Configure Nginx reverse proxy.
+
+
+Routes:
+
+/
+
+→ frontend
+
+
+/api
+
+→ FastAPI
+
+
+/widget
+
+→ widget service
+
+
+Requirements:
+
+SSL ready.
+
+Compression.
+
+Security headers.
+
+Caching strategy.
+
+WebSocket support.
+
+
+---
+
+PART 10 — CLOUD DEPLOYMENT
+
+Recommended initial architecture:
+
+Cloudflare
+
+↓
+
+Nginx
+
+↓
+
+Docker Host
+
+↓
+
+Frontend
+
+Backend
+
+PyRunner
+
+Redis
+
+↓
+
+Supabase
+
+
+---
+
+Prompt 22.10
+
+Create deployment documentation.
+
+
+Target:
+
+Ubuntu VPS.
+
+
+Include:
+
+Server preparation.
+
+Docker installation.
+
+Environment setup.
+
+Database connection.
+
+Deployment commands.
+
+SSL setup.
+
+Backup process.
+
+Rollback process.
+
+
+Write complete README.
+
+
+---
+
+PART 11 — MONITORING
+
+Prompt 22.11
+
+Implement monitoring.
+
+
+Track:
+
+Backend errors.
+
+Frontend errors.
+
+AI failures.
+
+Latency.
+
+Database failures.
+
+Worker failures.
+
+
+Create:
+
+Health endpoints.
+
+Logging strategy.
+
+Alert documentation.
+
+
+Prepare for:
+
+Sentry
+
+Prometheus
+
+Grafana
+
+
+---
+
+PART 12 — CUSTOMER ONBOARDING SYSTEM
+
+Before selling, onboarding must be smooth.
+
+
+---
+
+Prompt 22.12
+
+Build customer onboarding workflow.
+
+
+Create:
+
+Business setup checklist.
+
+AI training checklist.
+
+Installation guide.
+
+
+Dashboard should show:
+
+Complete profile
+
+Add services
+
+Train AI
+
+Install widget
+
+Test receptionist
+
+
+Create onboarding progress tracking.
+
+
+---
+
+PART 13 — BETA ADMIN TOOLS
+
+You will need internal tools.
+
+
+---
+
+Prompt 22.13
+
+Create Carai internal admin dashboard.
+
+
+Purpose:
+
+Support early customers.
+
+
+Features:
+
+View organizations.
+
+View usage.
+
+View AI errors.
+
+View conversations.
+
+Manage subscriptions.
+
+View system health.
+
+
+Restrict access to platform admins only.
+
+
+---
+
+PART 14 — FINAL QUALITY AUDIT
+
+Prompt 22.14
+
+Perform complete Carai AI Receptionist V1 audit.
+
+
+Review:
+
+Backend.
+
+Frontend.
+
+Database.
+
+AI Runtime.
+
+Security.
+
+Deployment.
+
+UX.
+
+Performance.
+
+
+Verify:
+
+A new business can sign up.
+
+Create profile.
+
+Train AI.
+
+Install widget.
+
+Customer can chat.
+
+AI can answer.
+
+Lead can be captured.
+
+Booking can be created.
+
+Owner can see analytics.
+
+
+Fix all blockers.
+
+
+Produce final launch report.
+
+
+---
+
+PART 15 — CUSTOMER READY CHECKLIST
+
+Before approaching businesses:
+
+Product
+
+✅ Working website
+✅ Demo account
+✅ Chat widget
+✅ AI receptionist
+✅ Knowledge training
+✅ CRM
+✅ Booking flow
+
+
+---
+
+Business
+
+Prepare:
+
+Pricing page
+
+Demo video
+
+Sales script
+
+Onboarding guide
+
+Support email
+
+Terms of service
+
+Privacy policy
+
+
+
+---
+
+First Offer
+
+Do not sell "AI technology."
+
+Sell the outcome:
+
+> "Never miss another customer message. Carai answers your customers, captures leads, and helps fill your calendar 24/7."
+
+
+
+
+---
+
+VERSION 1 COMPLETE
+
+At this point Carai AI Receptionist becomes a real commercial product.
+
+The next phase is no longer engineering.
+
+It becomes:
+
+Document 23 — Go-To-Market & First 100 Customers Strategy
+
+Including:
+
+Pricing
+
+Which businesses to approach first
+
+Demo strategy
+
+Cold outreach scripts
+
+Free trial structure
+
+Converting first paying customers
+
+How Carai becomes the foundation for Admin ESA + DevOS later
+
+
+That is the bridge from finished software → revenue.

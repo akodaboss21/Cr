@@ -1,0 +1,111 @@
+Document 17
+
+Development Roadmap
+
+
+---
+
+Phase 1 — Foundation
+
+Build:
+
+Auth
+
+Organizations
+
+Business profiles
+
+Database
+
+Design system
+
+
+
+---
+
+Phase 2 — AI Core
+
+Build:
+
+LLM Gateway
+
+Prompt Registry
+
+Tool System
+
+Conversation Engine
+
+
+
+---
+
+Phase 3 — MVP
+
+Build:
+
+Chat widget
+
+Knowledge base
+
+Leads
+
+Basic bookings
+
+
+
+---
+
+Phase 4 — Beta
+
+Release to:
+
+10 businesses.
+
+Measure:
+
+Usage
+
+Conversion
+
+Feedback
+
+
+
+---
+
+Phase 5 — Growth
+
+Add:
+
+WhatsApp
+
+Instagram
+
+Retail features
+
+Analytics
+
+Billing
+
+
+---
+
+Final Pre-Code Checklist
+
+✅ Product specification
+✅ Architecture
+✅ Database
+✅ API
+✅ AI Runtime
+✅ Agent Design
+✅ UX/UI
+✅ Design System
+✅ Tools
+✅ Prompts
+✅ Rules
+✅ Templates
+✅ Billing
+✅ Security
+✅ DevOps
+✅ Testing
+✅ Engineering Standards

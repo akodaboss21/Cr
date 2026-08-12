@@ -1,0 +1,1139 @@
+Now we move to the Frontend V1 build.
+
+Assumptions:
+
+Backend API is already implemented.
+
+Backend follows the Carai API specification.
+
+Frontend uses:
+
+Next.js 16 LTS
+
+React 19
+
+TypeScript
+
+Tailwind CSS
+
+shadcn/ui
+
+TanStack Query
+
+Zustand
+
+Zod
+
+Supabase Auth client
+
+
+
+The frontend goal:
+
+> A real business owner can log in, configure their AI receptionist, manage conversations, and prepare to onboard customers.
+
+
+
+
+---
+
+FRONTEND BUILD ORDER
+
+Phase 1
+Foundation
+
+↓
+
+Phase 2
+Authentication
+
+↓
+
+Phase 3
+Design System
+
+↓
+
+Phase 4
+Dashboard Shell
+
+↓
+
+Phase 5
+Business Onboarding
+
+↓
+
+Phase 6
+Business Management
+
+↓
+
+Phase 7
+Inbox + Conversations
+
+↓
+
+Phase 8
+AI Configuration
+
+↓
+
+Phase 9
+Knowledge Base
+
+↓
+
+Phase 10
+Customers + Leads
+
+↓
+
+Phase 11
+Appointments
+
+↓
+
+Phase 12
+Analytics
+
+↓
+
+Phase 13
+Billing
+
+↓
+
+Phase 14
+Chat Widget
+
+↓
+
+Phase 15
+Production Polish
+
+
+---
+
+PHASE 1 — Next.js Foundation
+
+Prompt 1.1 — Initialize Frontend
+
+Paste into Windsurf:
+
+You are a senior frontend architect.
+
+Build the Carai AI Receptionist frontend.
+
+Location:
+
+apps/web
+
+
+Use:
+
+Next.js 16 LTS
+React 19
+TypeScript
+Tailwind CSS
+shadcn/ui
+
+
+Architecture:
+
+src/
+
+app/
+
+components/
+
+features/
+
+hooks/
+
+lib/
+
+stores/
+
+types/
+
+styles/
+
+
+Requirements:
+
+Implement:
+
+- App Router
+- TypeScript strict mode
+- Environment configuration
+- API client foundation
+- Error boundaries
+- Loading states
+- Not-found page
+- Global styling
+- Theme support
+
+
+Install only necessary dependencies.
+
+Create:
+
+.env.example
+
+
+Prepare architecture for:
+
+Admin ESA
+DevOS
+Atelier
+
+
+Do not build product screens yet.
+
+Verify build succeeds.
+
+
+---
+
+PHASE 2 — Authentication UI
+
+Prompt 2.1
+
+Build Carai authentication frontend.
+
+Create:
+
+/login
+/signup
+/forgot-password
+
+
+Use Supabase Auth.
+
+
+Features:
+
+- Email magic link login
+- Session handling
+- Protected routes
+- Logout
+
+
+Create:
+
+AuthProvider
+
+useAuth hook
+
+ProtectedLayout
+
+
+Requirements:
+
+Beautiful SaaS-quality UI.
+
+Responsive.
+
+Add loading states.
+
+Handle errors gracefully.
+
+
+Do not duplicate auth logic.
+
+
+---
+
+PHASE 3 — Carai Design System
+
+Prompt 3.1
+
+Implement the Carai Design System.
+
+Create reusable components.
+
+Use shadcn/ui as foundation.
+
+
+Components:
+
+Button
+
+Card
+
+Input
+
+Select
+
+Modal
+
+Drawer
+
+Tabs
+
+Badge
+
+Avatar
+
+Dropdown
+
+Table
+
+Calendar
+
+Toast
+
+EmptyState
+
+LoadingSkeleton
+
+
+Create design tokens:
+
+Colors
+
+Spacing
+
+Typography
+
+Radius
+
+Shadows
+
+
+Brand feeling:
+
+Warm
+
+Professional
+
+Trustworthy
+
+Modern
+
+Human
+
+
+Avoid generic enterprise styling.
+
+
+Everything must be reusable.
+
+
+---
+
+PHASE 4 — Dashboard Application Shell
+
+Prompt 4.1
+
+Build the main Carai dashboard shell.
+
+
+Create:
+
+Sidebar
+
+Top navigation
+
+Mobile navigation
+
+Workspace layout
+
+
+Navigation:
+
+Dashboard
+
+Inbox
+
+Customers
+
+Leads
+
+Appointments
+
+Products
+
+Knowledge
+
+AI Receptionist
+
+Analytics
+
+Team
+
+Integrations
+
+Billing
+
+Settings
+
+
+Requirements:
+
+- Collapsible sidebar
+- Mobile drawer
+- Role-aware navigation
+- Dark/light theme
+- Responsive
+
+
+Do not create fake business logic.
+Use placeholder data only.
+
+
+---
+
+PHASE 5 — Dashboard Home
+
+Prompt 5.1
+
+Build the Carai dashboard homepage.
+
+
+Purpose:
+
+Business owner understands AI performance instantly.
+
+
+Create cards:
+
+Today's conversations
+
+New leads
+
+Appointments
+
+AI resolution rate
+
+Usage credits
+
+
+Create sections:
+
+Recent conversations
+
+Recent leads
+
+AI status
+
+Quick actions
+
+
+Use API hooks.
+
+Include:
+
+Loading states
+
+Empty states
+
+Error states
+
+
+Make it production-quality.
+
+
+---
+
+PHASE 6 — Business Onboarding
+
+Prompt 6.1
+
+Build the business onboarding flow.
+
+
+Route:
+
+/onboarding
+
+
+Multi-step wizard:
+
+Step 1:
+Welcome
+
+Step 2:
+Industry selection
+
+
+Industries:
+
+Hair Salon
+
+Barbershop
+
+Beauty Studio
+
+Nail Salon
+
+Retail/Wholesale
+
+
+Step 3:
+Business information
+
+
+Step 4:
+Services/products
+
+
+Step 5:
+Knowledge upload
+
+
+Step 6:
+AI preview
+
+
+Requirements:
+
+Save progress.
+
+Validate forms using Zod.
+
+Mobile friendly.
+
+Beautiful UX.
+
+
+---
+
+PHASE 7 — Business Management
+
+Prompt 7.1
+
+Build business management screens.
+
+
+Create:
+
+/business
+
+
+Sections:
+
+Profile
+
+Hours
+
+Locations
+
+Settings
+
+
+Features:
+
+Edit business information.
+
+Manage opening hours.
+
+Update settings.
+
+
+Use backend API.
+
+Add validation.
+
+
+---
+
+PHASE 8 — Services & Products UI
+
+Prompt 8.1
+
+Build catalog management.
+
+
+Routes:
+
+/services
+
+/products
+
+
+Services UI:
+
+Create
+
+Edit
+
+Delete
+
+Duration
+
+Price
+
+
+Products UI:
+
+Create
+
+Edit
+
+Delete
+
+SKU
+
+Price
+
+Inventory
+
+
+Support industries:
+
+Salon
+
+Barber
+
+Beauty
+
+Nail
+
+Retail
+
+
+Use tables and forms.
+
+Add confirmations.
+
+
+---
+
+PHASE 9 — Inbox & Conversations
+
+This is one of the most important screens.
+
+Prompt 9.1
+
+Build the Carai Inbox.
+
+
+Route:
+
+/inbox
+
+
+Layout:
+
+Left:
+
+Conversation list
+
+
+Center:
+
+Conversation chat
+
+
+Right:
+
+Customer profile
+
+
+Features:
+
+Real-time messages.
+
+Streaming AI responses.
+
+Message history.
+
+AI actions.
+
+Human takeover button.
+
+
+Show:
+
+AI thinking
+
+Tool execution
+
+Booking creation
+
+
+Design should feel similar to modern customer support tools.
+
+Do not make it look like a basic chatbot.
+
+
+---
+
+PHASE 10 — AI Receptionist Settings
+
+Prompt 10.1
+
+Build AI Receptionist settings.
+
+
+Route:
+
+/ai
+
+
+Sections:
+
+
+Personality:
+
+Professional/Friendly
+
+Luxury/Casual
+
+
+Behavior:
+
+Capture leads
+
+Recommend products
+
+Book appointments
+
+Escalate issues
+
+
+Models:
+
+Provider
+
+Model
+
+Fallback
+
+
+Greeting message.
+
+
+Requirements:
+
+Simple for non-technical owners.
+
+Advanced options collapsed.
+
+
+---
+
+PHASE 11 — Knowledge Base UI
+
+Prompt 11.1
+
+Build Knowledge Base.
+
+
+Route:
+
+/knowledge
+
+
+Sections:
+
+FAQs
+
+Services
+
+Products
+
+Documents
+
+
+Features:
+
+Upload documents.
+
+Create FAQ.
+
+Edit knowledge.
+
+Delete knowledge.
+
+Trigger AI training.
+
+
+Add:
+
+Processing states.
+
+Success states.
+
+Error states.
+
+
+Include AI test chat panel.
+
+
+---
+
+PHASE 12 — Customers & Leads
+
+Prompt 12.1
+
+Build CRM screens.
+
+
+Routes:
+
+/customers
+
+/leads
+
+
+Customers:
+
+Search
+
+Filter
+
+Profile
+
+History
+
+
+Leads:
+
+Status pipeline
+
+Lead score
+
+Conversation link
+
+
+Create professional CRM interface.
+
+
+---
+
+PHASE 13 — Appointments
+
+Prompt 13.1
+
+Build appointment management.
+
+
+Route:
+
+/appointments
+
+
+Views:
+
+Day
+
+Week
+
+Month
+
+
+Features:
+
+Create appointment.
+
+Edit.
+
+Cancel.
+
+Reschedule.
+
+
+Display:
+
+Customer
+
+Service
+
+Staff
+
+Time
+
+Status
+
+
+Use calendar component.
+
+
+---
+
+PHASE 14 — Analytics
+
+Prompt 14.1
+
+Build analytics dashboard.
+
+
+Route:
+
+/analytics
+
+
+Display:
+
+Conversations
+
+Leads
+
+Bookings
+
+Conversion rate
+
+AI success rate
+
+
+Charts:
+
+Conversation trends
+
+Popular questions
+
+Popular services
+
+
+Use Recharts.
+
+
+Include date filters.
+
+
+---
+
+PHASE 15 — Billing
+
+Prompt 15.1
+
+Build billing interface.
+
+
+Route:
+
+/billing
+
+
+Display:
+
+Current plan
+
+Usage
+
+Credits
+
+Invoices
+
+
+Actions:
+
+Upgrade
+
+Downgrade
+
+Manage subscription
+
+
+Integrate Stripe customer portal.
+
+
+Keep simple and clear.
+
+
+---
+
+PHASE 16 — Embeddable Chat Widget
+
+Separate application.
+
+Prompt 16.1
+
+Build Carai customer chat widget.
+
+
+Location:
+
+apps/widget
+
+
+Requirements:
+
+Vanilla embeddable script.
+
+Can be added to any website.
+
+
+Features:
+
+Launcher button.
+
+Chat window.
+
+Streaming messages.
+
+AI typing indicator.
+
+Suggested questions.
+
+Mobile support.
+
+
+Configuration:
+
+Logo
+
+Colors
+
+Welcome message
+
+Position
+
+
+Create:
+
+widget.js build output.
+
+
+Example:
+
+<script src="carai-widget.js"></script>
+
+
+---
+
+PHASE 17 — Frontend Testing
+
+Prompt 17.1
+
+Implement frontend testing.
+
+
+Use:
+
+Vitest
+
+React Testing Library
+
+Playwright
+
+
+Test:
+
+Authentication
+
+Onboarding
+
+Dashboard
+
+Chat
+
+Forms
+
+Permissions
+
+
+Add:
+
+Component tests.
+
+Integration tests.
+
+E2E flows.
+
+
+Ensure CI passes.
+
+
+---
+
+PHASE 18 — Frontend Production Audit
+
+Prompt 18.1
+
+Perform a complete frontend production audit.
+
+
+Check:
+
+Performance
+
+Accessibility
+
+Responsive design
+
+SEO
+
+Security
+
+Error handling
+
+Loading states
+
+Empty states
+
+Mobile UX
+
+
+Fix all issues.
+
+
+Verify:
+
+npm run build
+
+passes successfully.
+
+
+Generate frontend completion report.
+
+
+---
+
+After Frontend Completion
+
+You will have:
+
+✅ SaaS dashboard
+✅ Authentication
+✅ Business onboarding
+✅ AI configuration
+✅ Knowledge management
+✅ CRM
+✅ Inbox
+✅ Appointment management
+✅ Analytics
+✅ Billing UI
+✅ Customer chat widget
+
+
+---
+
+Next we move to:
+
+Integration + Deployment Prompts
+
+Those will cover:
+
+1. Connecting frontend ↔ backend
+
+
+2. Supabase production setup
+
+
+3. Docker Compose
+
+
+4. Nginx
+
+
+5. Cloudflare
+
+
+6. Environment secrets
+
+
+7. Production deployment
+
+
+8. Beta launch checklist
+
+
+9. Customer onboarding workflow
+
+
+
+That is the final stage before you can start approaching real businesses.

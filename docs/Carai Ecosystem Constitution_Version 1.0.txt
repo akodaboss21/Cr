@@ -1,0 +1,546 @@
+This should be written as if we're building the next major AI platform—not because we'll implement everything immediately, but because a solid architecture now will prevent expensive rewrites later.
+
+
+---
+
+Document 0
+
+Carai Ecosystem Constitution
+
+Version 1.0
+
+> "Build once. Reuse everywhere."
+
+
+
+This document defines the engineering, product, and architectural principles that every Carai product must follow.
+
+
+---
+
+1. Vision
+
+Carai is an ecosystem of AI-powered products that help businesses operate, create, automate, and grow.
+
+The ecosystem consists of independent products that become increasingly powerful when used together.
+
+Core pillars:
+
+Admin ESA
+
+DevOS
+
+Atelier Family
+
+Business AI Products
+
+
+
+---
+
+2. Philosophy
+
+Every Carai product must satisfy four conditions.
+
+Independent
+
+Must be sellable on its own.
+
+No dependency on another Carai product.
+
+
+---
+
+Connected
+
+Must expose APIs.
+
+Must communicate using standard protocols.
+
+Must integrate into the ecosystem.
+
+
+---
+
+Extendable
+
+Every feature should be extendable.
+
+Businesses should customize behavior without modifying source code.
+
+
+---
+
+Replaceable
+
+No component should be irreplaceable.
+
+Everything should be modular.
+
+
+---
+
+3. Product Hierarchy
+
+Carai
+
+│
+
+├── Admin ESA
+│
+├── DevOS
+│
+├── Atelier
+│
+├── AI Receptionist
+│
+├── AI Sales
+│
+├── AI Marketing
+│
+├── AI Finance
+│
+├── AI Inventory
+│
+├── AI HR
+│
+└── Future Products
+
+No product is hardcoded into another.
+
+Everything communicates through APIs.
+
+
+---
+
+4. AI Philosophy
+
+Carai is AI-provider agnostic.
+
+Supported:
+
+✓ OpenAI
+
+✓ Ollama
+
+✓ OpenRouter
+
+✓ LiteLLM
+
+✓ vLLM
+
+✓ LM Studio
+
+✓ Groq
+
+✓ Fireworks
+
+✓ Together AI
+
+✓ Any OpenAI-compatible endpoint
+
+The user chooses the provider.
+
+
+---
+
+5. Programming Philosophy
+
+Python first.
+
+FastAPI first.
+
+PyRunner first.
+
+TypeScript frontend.
+
+No vendor lock-in.
+
+Docker-native.
+
+Linux-first.
+
+Cloud-friendly.
+
+
+---
+
+6. Product Philosophy
+
+Products should solve ONE primary problem.
+
+Never build features because competitors have them.
+
+Build them because customers need them.
+
+
+---
+
+7. Design Philosophy
+
+Simple.
+
+Modern.
+
+Fast.
+
+Professional.
+
+Accessible.
+
+Responsive.
+
+Dark mode.
+
+Light mode.
+
+Keyboard-first.
+
+Touch-friendly.
+
+
+---
+
+8. Architecture Philosophy
+
+Everything is a service.
+
+Examples:
+
+Conversation Service
+
+Knowledge Service
+
+Booking Service
+
+Billing Service
+
+Notification Service
+
+Analytics Service
+
+Identity Service
+
+LLM Gateway
+
+Every service has:
+
+API
+
+Permissions
+
+Events
+
+Logging
+
+Metrics
+
+
+---
+
+9. API Philosophy
+
+Everything exposes REST APIs.
+
+Future:
+
+GraphQL
+
+MCP
+
+WebSocket
+
+Realtime
+
+Internal APIs should be versioned.
+
+
+---
+
+10. AI Philosophy
+
+Never write prompts directly inside code.
+
+Every prompt lives inside a Prompt Registry.
+
+Benefits:
+
+Versioning
+
+Testing
+
+Localization
+
+A/B testing
+
+Future tuning
+
+
+---
+
+11. Multi-Tenant Philosophy
+
+Every business is isolated.
+
+Separate:
+
+Knowledge
+
+Customers
+
+Bookings
+
+Analytics
+
+Billing
+
+Files
+
+Logs
+
+No shared customer data.
+
+
+---
+
+12. Security Philosophy
+
+Least privilege.
+
+Encrypted secrets.
+
+Encrypted backups.
+
+Rate limiting.
+
+Audit logging.
+
+Role permissions.
+
+Session control.
+
+
+---
+
+13. Extensibility Philosophy
+
+Every product supports:
+
+Plugins
+
+Extensions
+
+Hooks
+
+Webhooks
+
+Custom scripts
+
+Future DevOS modules
+
+
+---
+
+14. Billing Philosophy
+
+Subscription unlocks features.
+
+Credits unlock AI usage.
+
+Never mix them.
+
+Example:
+
+Professional Plan
+
+↓
+
+Unlimited users
+
+↓
+
+5000 AI credits
+
+↓
+
+Additional credits purchasable
+
+
+---
+
+15. Admin ESA Compatibility
+
+Every product exposes capabilities.
+
+Example:
+
+createLead()
+
+bookAppointment()
+
+searchKnowledge()
+
+notifyCustomer()
+
+generateInvoice()
+
+scheduleCampaign()
+
+Admin ESA becomes the orchestrator.
+
+Not the implementation.
+
+
+---
+
+16. DevOS Compatibility
+
+Every product exposes:
+
+SDK
+
+CLI
+
+API
+
+Plugin hooks
+
+Workflow actions
+
+Python interface
+
+DevOS becomes the development environment for every Carai product.
+
+
+---
+
+17. Atelier Compatibility
+
+Creative services should be reusable across the ecosystem.
+
+Examples:
+
+AI Receptionist
+
+↓
+
+Needs social post
+
+↓
+
+Calls Atelier Writing
+
+Marketing
+
+↓
+
+Needs image
+
+↓
+
+Calls Atelier Image
+
+Finance
+
+↓
+
+Needs branded PDF
+
+↓
+
+Calls Atelier Design
+
+
+---
+
+18. Engineering Standards
+
+Strict typing.
+
+CI/CD.
+
+Automated tests.
+
+Linting.
+
+Documentation.
+
+OpenAPI.
+
+Docker.
+
+Semantic versioning.
+
+Feature flags.
+
+
+---
+
+19. Business Principles
+
+Every feature must answer YES:
+
+Does it save time?
+
+Does it increase revenue?
+
+Does it reduce costs?
+
+Does it improve customer experience?
+
+Does it support future ecosystem growth?
+
+If not...
+
+It waits.
+
+
+---
+
+20. The Carai Rule
+
+> Every line of code should either create customer value today or increase the value of the ecosystem tomorrow.
+
+
+
+
+---
+
+Next Document
+
+I recommend we move to Document 1: System Architecture, which will be the technical blueprint for the entire platform.
+
+That document will define, in detail:
+
+Every backend service
+
+Every microservice (or modular service)
+
+The FastAPI architecture
+
+PyRunner's role
+
+Supabase's responsibilities
+
+The LLM Gateway
+
+The event bus
+
+Background workers
+
+File storage
+
+Notifications
+
+Authentication
+
+Billing
+
+Deployment
+
+Internal communication patterns
+
+How Carai AI Receptionist scales from 1 customer to 10,000+
+
+
+This document will effectively become the master technical architecture that all future Carai products can inherit.

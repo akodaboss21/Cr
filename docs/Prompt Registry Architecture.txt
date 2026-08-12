@@ -1,0 +1,72 @@
+Document 9
+
+Prompt Registry Architecture
+
+
+---
+
+Rule
+
+No production prompts inside code.
+
+
+---
+
+Prompt Object
+
+Contains:
+
+Name
+
+Version
+
+Purpose
+
+System Prompt
+
+Variables
+
+Examples
+
+Model Settings
+
+Evaluation Tests
+
+
+---
+
+Core Prompts
+
+Reception:
+
+Greeting
+
+FAQ
+
+Booking
+
+Product recommendation
+
+Complaint handling
+
+Escalation
+
+
+
+---
+
+Prompt Testing
+
+Before deployment:
+
+Test conversations.
+
+Measure:
+
+Accuracy
+
+Tone
+
+Tool selection
+
+Safety

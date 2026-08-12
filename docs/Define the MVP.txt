@@ -1,0 +1,289 @@
+Define the MVP
+
+Our goal is not to replace a human receptionist.
+
+Our goal is to ensure a business never misses a customer inquiry.
+
+The promise is simple:
+
+> "Every customer gets an immediate response, every lead is captured, and every appointment request is handled 24/7."
+
+
+
+
+---
+
+Target Market
+
+Don't launch for everyone.
+
+Pick one industry first.
+
+I would choose one of these:
+
+Barbershops
+
+Beauty salons
+
+Medical clinics
+
+Insurance agencies
+
+Funeral homes
+
+Auto repair shops
+
+
+Each has similar appointment and inquiry workflows.
+
+
+---
+
+Core Features (Version 1)
+
+1. AI Chat
+
+The AI answers questions like:
+
+Opening hours
+
+Prices
+
+Services
+
+Location
+
+Parking
+
+Payment methods
+
+Staff
+
+Policies
+
+
+
+---
+
+2. Lead Capture
+
+Instead of ending with:
+
+> "Thanks."
+
+
+
+It asks:
+
+Name
+
+Phone
+
+Email
+
+Reason for visit
+
+
+Every conversation becomes a lead.
+
+
+---
+
+3. Appointment Requests
+
+The AI can:
+
+Ask preferred date.
+
+Ask preferred time.
+
+Ask service.
+
+Ask preferred staff member.
+
+
+Initially, even if the booking still requires owner approval, that's enough to deliver value.
+
+
+---
+
+4. Owner Dashboard
+
+The owner sees:
+
+Conversations
+
+Leads
+
+Appointment requests
+
+Customer history
+
+AI performance
+
+
+
+---
+
+5. Business Knowledge
+
+During setup, the owner fills out:
+
+Business name
+
+Hours
+
+Address
+
+Services
+
+Prices
+
+FAQ
+
+Policies
+
+
+This becomes the AI's knowledge base.
+
+
+---
+
+Phase 2
+
+After customers are using it:
+
+WhatsApp
+
+Messenger
+
+Instagram DMs
+
+Email
+
+SMS
+
+
+One AI.
+
+Many channels.
+
+
+---
+
+Phase 3
+
+Now the AI becomes proactive.
+
+Instead of waiting...
+
+It sends:
+
+Appointment reminders
+
+Follow-up messages
+
+Review requests
+
+Birthday greetings
+
+Promotions
+
+
+
+---
+
+Technical Stack
+
+You've already chosen a stack that fits well:
+
+Frontend: Next.js + Tailwind + shadcn/ui
+
+Backend: FastAPI
+
+Execution Engine: PyRunner
+
+Database: Supabase
+
+AI: Multi-provider (OpenAI, Gemini, Ollama, etc.)
+
+Deployment: Docker
+
+
+
+---
+
+Internal Architecture
+
+Rather than a single chatbot, think in terms of services:
+
+Website Chat
+        │
+        ▼
+Conversation Service
+        │
+        ▼
+Intent Router
+        │
+ ┌──────┼──────────┐
+ ▼      ▼          ▼
+FAQ   Booking   Lead Capture
+        │
+        ▼
+Business Knowledge
+        │
+        ▼
+Database
+
+This modular design means new capabilities can be added without rewriting the whole system.
+
+
+---
+
+Business Model
+
+Three plans keeps pricing simple:
+
+Starter
+
+Website chat
+
+Lead capture
+
+Basic knowledge base
+
+
+Professional
+
+Appointments
+
+Analytics
+
+Multi-channel support
+
+More AI usage
+
+
+Business
+
+Team access
+
+API
+
+Custom branding
+
+Advanced integrations
+
+
+
+---
+
+The One Rule
+
+This is the principle I'd keep coming back to:
+
+*Every feature must either help the business win more customers, save time, or reduce missed opportunities.
+
+
+
+If a feature doesn't clearly do one of those things, it belongs later—not in the first release.

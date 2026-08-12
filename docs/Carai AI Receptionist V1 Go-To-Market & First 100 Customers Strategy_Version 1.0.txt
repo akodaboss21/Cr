@@ -1,0 +1,825 @@
+Document 23
+
+Carai AI Receptionist V1 Go-To-Market & First 100 Customers Strategy
+
+Version 1.0
+
+Now we move from building → selling.
+
+The objective:
+
+> Get the first paying businesses, collect feedback, prove demand, and create the foundation for Admin ESA, DevOS, and the wider Carai ecosystem.
+
+
+
+The mistake many AI startups make is trying to sell "AI".
+
+Businesses do not buy AI.
+
+They buy:
+
+More customers
+
+Faster responses
+
+Less missed revenue
+
+Less repetitive work
+
+More organization
+
+
+
+---
+
+1. Initial Market Position
+
+Product Positioning
+
+Do not position as:
+
+❌ "An AI agent platform"
+
+Too technical.
+
+
+---
+
+Position as:
+
+✅ "Your 24/7 AI receptionist for your business."
+
+
+---
+
+Core promise:
+
+> Carai answers your customers, captures leads, and helps you book more appointments while you focus on your business.
+
+
+
+
+---
+
+2. Initial Target Market Priority
+
+Your chosen markets:
+
+1. Hair salons
+
+
+2. Barbershops
+
+
+3. Beauty studios
+
+
+4. Nail salons
+
+
+5. Wholesale/Retail stores
+
+
+
+Good choices because they have:
+
+Repetitive questions
+
+Appointment needs
+
+Customer messaging
+
+High missed-message costs
+
+Owner-operated businesses
+
+
+
+---
+
+3. Attack Order
+
+Do not attack all industries simultaneously.
+
+Start narrow.
+
+Phase 1
+
+Hair Salons + Barbershops
+
+Why:
+
+Easy demo
+
+Easy understanding
+
+Appointment-driven
+
+Owners feel the pain immediately
+
+
+
+---
+
+Phase 2
+
+Beauty + Nail
+
+Similar workflow.
+
+
+---
+
+Phase 3
+
+Retail/Wholesale
+
+More complex:
+
+Inventory
+
+Product catalog
+
+Orders
+
+
+
+---
+
+4. First Customer Profile
+
+Ideal first customer:
+
+Business size
+
+1-20 employees
+
+
+---
+
+Characteristics
+
+Active Instagram/Facebook page
+
+Replies manually to customers
+
+Receives frequent WhatsApp messages
+
+Uses booking systems or calendars
+
+Owner is involved daily
+
+
+
+---
+
+5. Pricing Strategy
+
+Do not start too cheap.
+
+Cheap attracts difficult customers.
+
+
+---
+
+Starter
+
+$49/month
+
+For small businesses.
+
+Includes:
+
+AI receptionist
+
+Website widget
+
+Basic knowledge
+
+Lead capture
+
+Limited conversations
+
+
+
+---
+
+Growth
+
+$99/month
+
+Most customers.
+
+Includes:
+
+More conversations
+
+Booking assistance
+
+Analytics
+
+More AI customization
+
+Multiple staff
+
+
+
+---
+
+Business
+
+$249/month+
+
+Includes:
+
+Multiple locations
+
+Advanced integrations
+
+Priority support
+
+Custom workflows
+
+
+
+---
+
+6. Early Founder Offer
+
+First 20 customers:
+
+Founder Plan
+
+Example:
+
+$49/month locked forever.
+
+Requirements:
+
+Give feedback
+
+Allow testimonial
+
+Help improve product
+
+
+
+---
+
+Purpose:
+
+Not maximizing revenue.
+
+Purpose:
+
+Create proof.
+
+
+---
+
+7. Demo Strategy
+
+Never demo features.
+
+Demo a transformation.
+
+
+---
+
+Bad demo:
+
+"Here is our AI model."
+
+
+---
+
+Good demo:
+
+Before:
+
+Customer:
+
+"Hi, how much is braiding?"
+
+Owner:
+
+Busy. No reply.
+
+Customer leaves.
+
+
+---
+
+After:
+
+Customer:
+
+"Hi, how much is braiding?"
+
+Carai:
+
+"Welcome! Our braiding starts at $80. Would you like to see available appointments?"
+
+
+---
+
+Business owner understands instantly.
+
+
+---
+
+8. Customer Acquisition Channels
+
+Channel 1 — Direct Outreach
+
+Fastest.
+
+Find:
+
+Instagram pages
+
+Google Maps listings
+
+Facebook business pages
+
+
+
+---
+
+Message:
+
+"Hi, I noticed your salon gets a lot of customer activity. We built an AI receptionist that answers customer questions and helps with bookings 24/7. Would you like a free demo?"
+
+
+---
+
+Channel 2 — Local Networking
+
+Especially strong in Trinidad/Caribbean.
+
+Visit:
+
+Salons
+
+Barbershops
+
+Beauty stores
+
+
+Show phone demo.
+
+
+---
+
+Channel 3 — Referral
+
+After first customers:
+
+Offer:
+
+"Refer another business and receive a free month."
+
+
+---
+
+9. Demo Account
+
+Create before outreach.
+
+Example:
+
+Bella Beauty Studio
+
+Loaded with:
+
+Services:
+
+Haircut
+
+Coloring
+
+Braids
+
+Treatments
+
+
+FAQ:
+
+Prices
+
+Opening hours
+
+Location
+
+
+Calendar.
+
+
+---
+
+When prospects see it:
+
+They interact immediately.
+
+
+---
+
+10. Sales Funnel
+
+100 businesses contacted
+
+↓
+
+30 respond
+
+↓
+
+15 demos
+
+↓
+
+5 trials
+
+↓
+
+2-3 paying customers
+
+Early goal:
+
+First 10 customers.
+
+Not 100.
+
+
+---
+
+11. Trial Strategy
+
+Avoid unlimited free trials.
+
+Recommended:
+
+14-day trial
+
+Requires:
+
+Business setup
+
+Real usage
+
+Feedback
+
+
+
+---
+
+Trial success metric:
+
+Business receives:
+
+50+ conversations
+
+Leads captured
+
+Time saved
+
+
+
+---
+
+12. Customer Onboarding Process
+
+Day 1:
+
+Business profile.
+
+
+---
+
+Day 2:
+
+Services/products.
+
+
+---
+
+Day 3:
+
+Knowledge upload.
+
+
+---
+
+Day 4:
+
+AI testing.
+
+
+---
+
+Day 5:
+
+Install widget.
+
+
+---
+
+Day 7:
+
+Review conversations.
+
+
+---
+
+13. Feedback Loop
+
+Every customer creates intelligence.
+
+Collect:
+
+Missing knowledge
+
+"What questions couldn't AI answer?"
+
+
+---
+
+Missing features
+
+"What did you need?"
+
+
+---
+
+Buying signals
+
+"What made you pay?"
+
+
+---
+
+This improves Carai.
+
+
+---
+
+14. Metrics To Track
+
+Acquisition
+
+Outreach sent
+
+Replies
+
+Demos
+
+Trials
+
+Paid conversions
+
+
+
+---
+
+Product
+
+Conversations
+
+Leads generated
+
+Bookings created
+
+AI success rate
+
+
+
+---
+
+Revenue
+
+Track:
+
+MRR
+
+Example:
+
+10 customers × $99/month
+
+= $990 MRR
+
+
+---
+
+50 customers:
+
+50 × $99
+
+= $4,950 MRR
+
+
+---
+
+100 customers:
+
+100 × $99
+
+= $9,900 MRR
+
+
+---
+
+15. The Long-Term Ecosystem Path
+
+Carai AI Receptionist is the first business-facing agent.
+
+The progression:
+
+Carai AI Receptionist
+
+↓
+
+More Business Agents
+
+↓
+
+Admin ESA
+
+↓
+
+Business Operating System
+
+↓
+
+DevOS
+
+↓
+
+Business Creation Platform
+
+↓
+
+Atelier
+
+
+---
+
+16. How DevOS Fits
+
+Important:
+
+DevOS is not replaced by Carai.
+
+They serve different users.
+
+Carai:
+
+"For businesses that want AI to handle work."
+
+
+---
+
+DevOS:
+
+"For businesses and teams that want to create their own systems."
+
+
+---
+
+Future:
+
+A Carai customer could eventually open DevOS:
+
+"Create me a custom workflow for inventory, marketing, and reporting."
+
+
+---
+
+17. First 90 Days After Launch
+
+Month 1
+
+Goal:
+
+10 paying customers.
+
+Focus:
+
+Direct outreach
+
+Fix onboarding
+
+Improve AI
+
+
+
+---
+
+Month 2
+
+Goal:
+
+25-50 customers.
+
+Focus:
+
+Testimonials
+
+Referrals
+
+Better demos
+
+
+
+---
+
+Month 3
+
+Goal:
+
+100 customers.
+
+Focus:
+
+Repeatable sales process
+
+Partnerships
+
+Agencies
+
+
+
+---
+
+18. Before Selling Checklist
+
+You need:
+
+Product
+
+✅ Production deployment
+✅ Demo account
+✅ Pricing page
+✅ Terms/privacy
+✅ Support channel
+✅ Analytics
+
+
+---
+
+Sales
+
+✅ Demo script
+✅ Outreach templates
+✅ Customer onboarding guide
+✅ FAQ
+
+
+---
+
+Operations
+
+✅ Error monitoring
+✅ Backups
+✅ Customer support process
+✅ Usage monitoring
+
+
+---
+
+Final V1 Mission
+
+The mission is simple:
+
+> Get Carai AI Receptionist into the hands of real businesses, prove it creates value, and use that foundation to build the larger Carai ecosystem.
+
+
+
+
+---
+
+Next Document
+
+The next document should be:
+
+Document 24 — Carai AI Receptionist Sales Kit
+
+Including:
+
+Landing page copy
+
+Demo script
+
+Cold outreach messages
+
+WhatsApp messages
+
+Email templates
+
+Sales call structure
+
+Objection handling
+
+First customer closing strategy
+
+
+This is what you use immediately after the software is ready.

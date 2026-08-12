@@ -1,0 +1,81 @@
+Document 11
+
+Industry Template System
+
+
+---
+
+Purpose
+
+Reduce setup time.
+
+
+---
+
+Hair Salon Template
+
+Includes:
+
+Services
+
+Stylists
+
+Appointments
+
+Hair consultations
+
+
+---
+
+Barbershop Template
+
+Includes:
+
+Walk-ins
+
+Barbers
+
+Haircuts
+
+Beard services
+
+
+---
+
+Beauty Studio Template
+
+Includes:
+
+Treatments
+
+Packages
+
+Consultations
+
+
+---
+
+Nail Salon Template
+
+Includes:
+
+Technicians
+
+Design requests
+
+Maintenance
+
+
+---
+
+Retail Template
+
+Includes:
+
+Products
+
+Inventory
+
+Orders
+
+Wholesale pricing

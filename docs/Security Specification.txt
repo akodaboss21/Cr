@@ -1,0 +1,65 @@
+Document 13
+
+Security Specification
+
+
+---
+
+Authentication
+
+Supabase Auth.
+
+Methods:
+
+Magic link
+
+OAuth
+
+Future SSO
+
+
+---
+
+Authorization
+
+RBAC:
+
+Owner
+
+Admin
+
+Manager
+
+Staff
+
+Developer
+
+
+---
+
+Data Protection
+
+Required:
+
+Encryption
+
+RLS
+
+Audit logs
+
+Secret management
+
+Backups
+
+
+---
+
+AI Security
+
+Prevent:
+
+Prompt injection
+
+Data leakage
+
+Unauthorized tools

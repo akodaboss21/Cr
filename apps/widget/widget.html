@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Carai Chat Widget</title>
+    <link rel="stylesheet" href="widget.css">
+</head>
+<body>
+    <div class="widget-container">
+        <button class="floating-button" id="chat-button">Chat</button>
+        <div class="chat-container">
+            <div class="chat-header">
+                <div class="brand-logo"></div>
+                <h3 class="greeting"></h3>
+            </div>
+            <div class="chat-messages"></div>
+            <form class="chat-form">
+                <input type="text" id="message-input" placeholder="Type your message...">
+                <button type="submit">Send</button>
+            </form>
+            <div class="typing-indicator" id="typing-indicator"></div>
+        </div>
+    </div>
+    <script src="widget.js"></script>
+</body>
+</html>

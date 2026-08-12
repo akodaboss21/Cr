@@ -1,0 +1,119 @@
+Document 8
+
+Carai Tool & Capability Framework
+
+
+---
+
+Purpose
+
+Tools are how AI interacts with the real world.
+
+The LLM thinks.
+
+Tools act.
+
+
+---
+
+Tool Structure
+
+Every tool contains:
+
+{
+"name":"",
+"description":"",
+"inputs":{},
+"outputs":{},
+"permissions":[],
+"events":[]
+}
+
+
+---
+
+Core Tools
+
+Customer Tools
+
+create_customer()
+
+get_customer()
+
+update_customer()
+
+search_customer()
+
+
+---
+
+Lead Tools
+
+create_lead()
+
+update_lead()
+
+score_lead()
+
+
+---
+
+Booking Tools
+
+check_availability()
+
+create_booking()
+
+cancel_booking()
+
+reschedule_booking()
+
+
+---
+
+Business Tools
+
+get_hours()
+
+get_services()
+
+get_policies()
+
+
+---
+
+Retail Tools
+
+search_products()
+
+check_inventory()
+
+create_order()
+
+
+---
+
+Communication Tools
+
+send_email()
+
+send_sms()
+
+send_whatsapp()
+
+notify_staff()
+
+
+---
+
+Tool Security
+
+Every tool checks:
+
+Organization
+
+User permission
+
+AI permission
+
+Business rules

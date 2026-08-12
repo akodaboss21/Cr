@@ -1,0 +1,791 @@
+Think of it as "the first digital employee."
+
+
+---
+
+Carai AI Receptionist
+
+Product Specification v1.0
+
+Product Mission
+
+> Carai AI Receptionist is a digital receptionist that works 24/7 to answer customers, capture leads, schedule appointments, and help businesses never miss an opportunity.
+
+
+
+It is the first product in the Carai ecosystem and the first business module that will eventually connect to Admin ESA.
+
+
+---
+
+Product Goals
+
+The AI Receptionist should help businesses:
+
+Never miss a customer.
+
+Answer repetitive questions instantly.
+
+Reduce phone calls.
+
+Increase bookings.
+
+Capture every lead.
+
+Save owners time.
+
+Improve customer satisfaction.
+
+
+
+---
+
+Target Customers
+
+Initially target service businesses:
+
+Hair salons
+
+Barbershops
+
+Beauty studios
+
+Nail salons
+
+Auto repair shops
+
+Medical clinics
+
+Insurance agencies
+
+Funeral homes
+
+Contractors
+
+
+Later expand into restaurants, retail, real estate, and others.
+
+
+---
+
+User Types
+
+Business Owner
+
+Can:
+
+Manage business profile
+
+Train AI
+
+View analytics
+
+Manage team
+
+Configure integrations
+
+Review conversations
+
+
+
+---
+
+Staff Member
+
+Can:
+
+View conversations
+
+Accept bookings
+
+Update appointments
+
+Reply manually when needed
+
+
+
+---
+
+Customer
+
+No account required.
+
+Can:
+
+Ask questions
+
+Request appointments
+
+Leave contact information
+
+Receive follow-up messages
+
+
+
+---
+
+Core Modules
+
+1. Authentication
+
+Email magic link
+
+Google
+
+Microsoft (later)
+
+Team invitations
+
+Roles & permissions
+
+
+
+---
+
+2. Business Profile
+
+Business Name
+
+Logo
+
+Industry
+
+Description
+
+Hours
+
+Address
+
+Phone
+
+Website
+
+Timezone
+
+Languages
+
+Holiday hours
+
+
+---
+
+3. Knowledge Base
+
+The AI answers using:
+
+FAQs
+
+Services
+
+Pricing
+
+Policies
+
+Staff
+
+Locations
+
+Documents
+
+Custom instructions
+
+Uploaded PDFs
+
+Future:
+
+Website crawling
+
+
+---
+
+4. AI Conversation Engine
+
+Supports:
+
+Website Chat
+
+WhatsApp
+
+Facebook Messenger
+
+Instagram
+
+SMS
+
+Email
+
+Future voice support.
+
+
+---
+
+Conversation abilities:
+
+Greeting
+
+Questions
+
+Recommendations
+
+Lead qualification
+
+Appointment requests
+
+Human handoff
+
+Conversation memory
+
+
+---
+
+5. Lead Management
+
+Stores:
+
+Name
+
+Email
+
+Phone
+
+Interest
+
+Conversation
+
+Source
+
+Status
+
+Assigned staff
+
+Notes
+
+
+---
+
+Lead Pipeline
+
+New
+
+Qualified
+
+Appointment Requested
+
+Appointment Confirmed
+
+Customer
+
+Closed
+
+
+---
+
+6. Appointment System
+
+Supports:
+
+Service selection
+
+Staff selection
+
+Date
+
+Time
+
+Duration
+
+Confirmation
+
+Cancellation
+
+Reschedule
+
+Calendar sync
+
+
+---
+
+Future:
+
+Two-way Google Calendar
+
+Outlook Calendar
+
+
+---
+
+7. Notifications
+
+Owner receives:
+
+New lead
+
+Missed booking
+
+AI confidence low
+
+Customer complaint
+
+Appointment request
+
+
+---
+
+Customer receives:
+
+Booking confirmation
+
+Reminder
+
+Cancellation
+
+Follow-up
+
+
+---
+
+8. Analytics
+
+Dashboard
+
+New Leads
+
+Bookings
+
+Conversion Rate
+
+Average Response Time
+
+Popular Questions
+
+Peak Hours
+
+Messages
+
+Revenue (future)
+
+
+---
+
+9. AI Configuration
+
+Choose AI Provider
+
+OpenAI
+
+Gemini
+
+Ollama
+
+Anthropic
+
+Future custom providers.
+
+
+---
+
+Controls:
+
+Temperature
+
+Model
+
+System prompt
+
+Fallback model
+
+Usage limits
+
+
+---
+
+10. Integrations
+
+Initial:
+
+Email
+
+WhatsApp
+
+Google Calendar
+
+Stripe
+
+Future:
+
+Square
+
+HubSpot
+
+Salesforce
+
+Slack
+
+Teams
+
+QuickBooks
+
+Xero
+
+Zapier
+
+Webhook
+
+
+---
+
+AI Agent Architecture
+
+Rather than one AI.
+
+Build specialized agents.
+
+Reception Agent
+
+Greets visitors.
+
+Answers questions.
+
+
+---
+
+Knowledge Agent
+
+Finds answers.
+
+Searches documents.
+
+
+---
+
+Booking Agent
+
+Handles appointments.
+
+
+---
+
+Lead Agent
+
+Collects customer details.
+
+Qualifies prospects.
+
+
+---
+
+Escalation Agent
+
+Transfers to humans.
+
+Flags problems.
+
+
+---
+
+Future Admin ESA can orchestrate all of these.
+
+
+---
+
+Frontend
+
+Landing Page
+
+Pricing
+
+Features
+
+Customer Login
+
+Dashboard
+
+Settings
+
+Analytics
+
+Knowledge Base
+
+Conversation Inbox
+
+Appointments
+
+Leads
+
+Billing
+
+AI Settings
+
+Integrations
+
+Team
+
+
+---
+
+Customer Dashboard
+
+Home
+
+Inbox
+
+Appointments
+
+Customers
+
+Knowledge
+
+Analytics
+
+Automations (future)
+
+Settings
+
+
+---
+
+AI Chat Widget
+
+Floating bubble
+
+Brand colours
+
+Dark mode
+
+Light mode
+
+Custom welcome message
+
+Typing animation
+
+Attachments (future)
+
+Voice (future)
+
+
+---
+
+Backend
+
+FastAPI
+
+PyRunner execution engine
+
+Supabase
+
+Docker
+
+REST API
+
+Realtime updates
+
+Event bus
+
+Audit logs
+
+
+---
+
+Database
+
+Core entities:
+
+Users
+
+Organizations
+
+Teams
+
+Businesses
+
+Knowledge
+
+Conversations
+
+Messages
+
+Leads
+
+Appointments
+
+Services
+
+Staff
+
+Analytics
+
+Usage
+
+Billing
+
+API Keys
+
+Integrations
+
+Audit Logs
+
+
+---
+
+Security
+
+Encrypted secrets
+
+Role-based permissions
+
+Rate limiting
+
+Audit history
+
+Session management
+
+Multi-tenant isolation
+
+
+---
+
+Billing
+
+Plans:
+
+Free
+
+Starter
+
+Professional
+
+Business
+
+Enterprise
+
+Credits:
+
+AI Messages
+
+Image Generation
+
+Voice Minutes
+
+Future premium tools
+
+
+---
+
+APIs
+
+Public API
+
+Conversation API
+
+Booking API
+
+Lead API
+
+Knowledge API
+
+Webhook API
+
+Admin API
+
+Future Admin ESA API
+
+
+---
+
+Admin ESA Compatibility
+
+Everything should expose capabilities rather than tightly coupling logic.
+
+For example:
+
+bookAppointment()
+
+answerQuestion()
+
+captureLead()
+
+notifyOwner()
+
+searchKnowledge()
+
+handoffToHuman()
+
+Admin ESA can later invoke these capabilities without modifying Carai AI Receptionist.
+
+
+---
+
+Future Roadmap
+
+Version 1
+
+Website chat
+
+Knowledge base
+
+Lead capture
+
+Appointment requests
+
+Owner dashboard
+
+
+Version 2
+
+WhatsApp
+
+Facebook Messenger
+
+Instagram
+
+Analytics
+
+Calendar synchronization
+
+
+Version 3
+
+Voice receptionist
+
+Multi-language support
+
+AI-generated follow-ups
+
+Payments
+
+Customer portal
+
+
+Version 4
+
+Admin ESA integration
+
+DevOS extension support
+
+Marketplace plugins
+
+Custom AI agents
+
+Workflow builder
+
+
+
+---
+
+Guiding Principles
+
+Every design and engineering decision should be measured against these principles:
+
+1. Solve a real business problem first.
+
+
+2. Be usable by non-technical business owners.
+
+
+3. Remain modular so it can become part of Admin ESA later.
+
+
+4. Expose APIs and extension points for DevOS and future products.
+
+
+5. Scale from a single business to thousands of organizations without architectural changes.

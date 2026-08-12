@@ -1,0 +1,23 @@
+CARAI AI RECEPTIONIST V1 BUILD PLAN
+Final V1 Goal
+A real business owner can:
+✅ Sign up
+✅ Create their business
+✅ Select industry
+✅ Add services/products
+✅ Upload knowledge
+✅ Configure AI receptionist
+✅ Embed website chat widget
+✅ Receive customer conversations
+✅ AI answers questions
+✅ Capture leads
+✅ Create booking requests
+✅ Manage customers
+✅ View analytics
+✅ Pay subscription
+Target customers:
+Hair salons
+Barbershops
+Beauty studios
+Nail salons
+Wholesale/Retail stores

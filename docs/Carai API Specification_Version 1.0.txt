@@ -1,0 +1,878 @@
+Carai API Specification
+
+Version 1.0
+
+
+---
+
+API Philosophy
+
+The API must be:
+
+REST-first
+
+OpenAPI documented
+
+Versioned
+
+Stateless
+
+JWT authenticated
+
+Multi-tenant
+
+OpenAI-compatible
+
+DevOS compatible
+
+Admin ESA compatible
+
+
+
+---
+
+Base URL
+
+https://api.carai.app/api/v1
+
+Future:
+
+v2
+v3
+
+Never break existing clients.
+
+
+---
+
+Authentication
+
+Supports
+
+Email Magic Link
+
+Google OAuth
+
+API Keys
+
+Service Tokens
+
+
+Future
+
+Microsoft
+
+GitHub
+
+Passkeys
+
+SAML
+
+Enterprise SSO
+
+
+
+---
+
+Authentication Headers
+
+Authorization: Bearer <token>
+
+X-Organization-ID:
+
+X-Workspace-ID:
+
+X-Request-ID:
+
+
+---
+
+Response Format
+
+Every response:
+
+{
+  "success": true,
+  "data": {},
+  "meta": {},
+  "errors": []
+}
+
+Errors
+
+{
+  "success": false,
+  "error": {
+    "code": "NOT_FOUND",
+    "message": "Conversation not found"
+  }
+}
+
+
+---
+
+Authentication API
+
+POST
+
+/auth/login
+
+/auth/logout
+
+/auth/refresh
+
+/auth/magic-link
+
+/auth/google
+
+/auth/me
+
+
+---
+
+Organization API
+
+GET
+
+/organizations
+
+POST
+
+/organizations
+
+PATCH
+
+/organizations/{id}
+
+DELETE
+
+/organizations/{id}
+
+
+---
+
+Business API
+
+GET
+
+/business
+
+PATCH
+
+/business
+
+GET
+
+/business/hours
+
+PATCH
+
+/business/hours
+
+GET
+
+/business/settings
+
+
+---
+
+Staff API
+
+GET
+
+/staff
+
+POST
+
+/staff
+
+PATCH
+
+/staff/{id}
+
+DELETE
+
+/staff/{id}
+
+
+---
+
+Customer API
+
+GET
+
+/customers
+
+POST
+
+/customers
+
+PATCH
+
+/customers/{id}
+
+DELETE
+
+/customers/{id}
+
+
+---
+
+Lead API
+
+GET
+
+/leads
+
+POST
+
+/leads
+
+PATCH
+
+/leads/{id}
+
+DELETE
+
+/leads/{id}
+
+POST
+
+/leads/{id}/convert
+
+
+---
+
+Conversation API
+
+GET
+
+/conversations
+
+POST
+
+/conversations
+
+GET
+
+/conversations/{id}
+
+POST
+
+/conversations/{id}/messages
+
+PATCH
+
+/conversations/{id}
+
+DELETE
+
+/conversations/{id}
+
+
+---
+
+Message API
+
+GET
+
+/messages
+
+POST
+
+/messages
+
+DELETE
+
+/messages/{id}
+
+
+---
+
+Booking API
+
+GET
+
+/bookings
+
+POST
+
+/bookings
+
+PATCH
+
+/bookings/{id}
+
+DELETE
+
+/bookings/{id}
+
+POST
+
+/bookings/{id}/confirm
+
+POST
+
+/bookings/{id}/cancel
+
+POST
+
+/bookings/{id}/reschedule
+
+
+---
+
+Services API
+
+GET
+
+/services
+
+POST
+
+/services
+
+PATCH
+
+/services/{id}
+
+DELETE
+
+/services/{id}
+
+
+---
+
+Retail Products API
+
+GET
+
+/products
+
+POST
+
+/products
+
+PATCH
+
+/products/{id}
+
+DELETE
+
+/products/{id}
+
+
+---
+
+Inventory API
+
+GET
+
+/inventory
+
+PATCH
+
+/inventory/{id}
+
+POST
+
+/inventory/adjust
+
+This prepares for Retail and Wholesale.
+
+
+---
+
+Knowledge API
+
+GET
+
+/knowledge
+
+POST
+
+/knowledge
+
+DELETE
+
+/knowledge/{id}
+
+POST
+
+/knowledge/upload
+
+POST
+
+/knowledge/import-website
+
+POST
+
+/knowledge/reindex
+
+
+---
+
+Analytics API
+
+GET
+
+/analytics
+
+GET
+
+/analytics/dashboard
+
+GET
+
+/analytics/conversations
+
+GET
+
+/analytics/bookings
+
+GET
+
+/analytics/customers
+
+
+---
+
+Billing API
+
+GET
+
+/billing
+
+GET
+
+/subscription
+
+POST
+
+/subscription/change
+
+GET
+
+/usage
+
+GET
+
+/credits
+
+
+---
+
+Notification API
+
+GET
+
+/notifications
+
+PATCH
+
+/notifications/{id}
+
+DELETE
+
+/notifications/{id}
+
+
+---
+
+Integration API
+
+GET
+
+/integrations
+
+POST
+
+/integrations
+
+PATCH
+
+/integrations/{id}
+
+DELETE
+
+/integrations/{id}
+
+
+---
+
+AI API
+
+This is the most important section.
+
+Every Carai product uses this API.
+
+Not just Receptionist.
+
+
+---
+
+Chat Completion
+
+OpenAI-compatible
+
+POST
+
+/ai/chat/completions
+
+Supports
+
+OpenAI
+
+Ollama
+
+OpenRouter
+
+Groq
+
+Together
+
+LiteLLM
+
+LM Studio
+
+vLLM
+
+Any compatible endpoint.
+
+
+---
+
+Responses API
+
+POST
+
+/ai/responses
+
+Future-compatible.
+
+
+---
+
+Streaming
+
+POST
+
+/ai/chat/completions
+
+stream=true
+
+SSE.
+
+
+---
+
+Models
+
+GET
+
+/ai/models
+
+Returns every available model.
+
+
+---
+
+Embeddings
+
+POST
+
+/ai/embeddings
+
+
+---
+
+Images
+
+Future.
+
+POST
+
+/ai/images
+
+
+---
+
+Speech
+
+Future.
+
+POST
+
+/ai/audio/speech
+
+POST
+
+/ai/audio/transcriptions
+
+
+---
+
+AI Provider
+
+GET
+
+/ai/providers
+
+Returns
+
+OpenAI
+
+Ollama
+
+Groq
+
+etc.
+
+
+---
+
+AI Health
+
+GET
+
+/ai/health
+
+Shows
+
+Latency
+
+Availability
+
+Failures
+
+
+---
+
+Prompt API
+
+GET
+
+/prompts
+
+POST
+
+/prompts
+
+PATCH
+
+/prompts/{id}
+
+DELETE
+
+/prompts/{id}
+
+Never hardcode prompts.
+
+
+---
+
+Workflow API
+
+Future DevOS.
+
+GET
+
+/workflows
+
+POST
+
+/workflows
+
+PATCH
+
+/workflows/{id}
+
+DELETE
+
+/workflows/{id}
+
+POST
+
+/workflows/{id}/run
+
+
+---
+
+Agent API
+
+Future Admin ESA.
+
+GET
+
+/agents
+
+POST
+
+/agents
+
+PATCH
+
+/agents/{id}
+
+DELETE
+
+/agents/{id}
+
+POST
+
+/agents/{id}/execute
+
+
+---
+
+Marketplace API
+
+Future.
+
+GET
+
+/marketplace
+
+POST
+
+/install
+
+POST
+
+/uninstall
+
+
+---
+
+Webhooks
+
+Events.
+
+Conversation Started
+
+Conversation Closed
+
+Lead Created
+
+Appointment Created
+
+Appointment Cancelled
+
+Customer Created
+
+Payment Received
+
+Inventory Updated
+
+Knowledge Updated
+
+
+---
+
+Rate Limits
+
+Free
+
+100 AI requests/day
+
+Starter
+
+5,000 AI requests/month
+
+Professional
+
+25,000 AI requests/month
+
+Business
+
+100,000 AI requests/month
+
+Enterprise
+
+Custom
+
+Actual limits can be adjusted later, but the API should support plan-based throttling from the beginning.
+
+
+---
+
+SDK Support
+
+Every endpoint should be consumable through official SDKs.
+
+Planned SDKs:
+
+Python
+
+TypeScript
+
+JavaScript
+
+CLI (used by DevOS)
+
+Future Flutter SDK for mobile
+
+
+The SDKs should wrap the REST API cleanly rather than exposing raw HTTP details.
+
+
+---
+
+API Versioning
+
+Use URI versioning:
+
+/api/v1/...
+
+Deprecation policy:
+
+Existing versions receive security fixes.
+
+New features are added without breaking existing clients whenever possible.
+
+Breaking changes only occur in a new major API version.
+
+
+
+---
+
+Internal vs Public APIs
+
+Keep a strict distinction:
+
+Public APIs
+
+Stable.
+
+Documented.
+
+Available to customers and partners.
+
+
+Internal APIs
+
+Used between Carai modules.
+
+Can evolve more quickly.
+
+Never exposed directly outside the platform.
+
+
+This separation lets Admin ESA, DevOS, and Atelier communicate efficiently without forcing those internal contracts to remain public forever.
+
+
+---
+
+Ecosystem Readiness
+
+This API is intentionally broader than Carai AI Receptionist.
+
+It already provides extension points for:
+
+Admin ESA to orchestrate business operations.
+
+DevOS to create workflows, plugins, and custom applications.
+
+Atelier to generate creative assets through the shared AI layer.
+
+Future Carai products to share authentication, billing, AI access, and business data without duplicating infrastructure.

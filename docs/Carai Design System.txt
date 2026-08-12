@@ -1,0 +1,130 @@
+Document 7
+
+Carai Design System
+
+
+---
+
+Brand Personality
+
+Carai should feel:
+
+Intelligent
+
+Warm
+
+Trustworthy
+
+Modern
+
+Human
+
+
+Not:
+
+Cold enterprise software
+
+Sci-fi robot
+
+Generic chatbot
+
+
+
+---
+
+Design Tokens
+
+Typography
+
+Primary:
+
+Inter / Geist style
+
+Characteristics:
+
+Clean
+
+Readable
+
+Modern
+
+
+---
+
+Components
+
+Required:
+
+Buttons
+
+Inputs
+
+Cards
+
+Tables
+
+Dialogs
+
+Tabs
+
+Navigation
+
+Chat bubbles
+
+AI indicators
+
+Charts
+
+Forms
+
+
+---
+
+AI Visual Language
+
+AI actions should have a distinct identity.
+
+Examples:
+
+AI thinking indicator
+
+AI generated response
+
+Tool execution
+
+Human takeover
+
+Automation running
+
+
+---
+
+Motion
+
+Use subtle animation:
+
+Page transitions
+
+Loading states
+
+AI typing
+
+Success confirmations
+
+
+Avoid excessive effects.
+
+
+---
+
+Accessibility
+
+Required:
+
+WCAG AA
+
+Keyboard navigation
+
+Screen reader support
+
+High contrast

@@ -1,0 +1,667 @@
+Document 24
+
+Carai AI Receptionist Sales Kit
+
+Version 1.0
+
+Purpose:
+
+Turn the completed product into a repeatable customer acquisition system.
+
+The objective is not to "convince people to buy AI."
+
+The objective is:
+
+> Show businesses that they are already losing money because customer questions, bookings, and leads are not handled quickly enough.
+
+
+
+
+---
+
+PART 1 — Core Sales Message
+
+One Sentence Pitch
+
+> Carai is an AI receptionist that answers your customers 24/7, handles common questions, captures leads, and helps you get more bookings without adding another employee.
+
+
+
+
+---
+
+Short Version
+
+> Never miss another customer message. Carai responds instantly, answers questions, and helps turn conversations into customers.
+
+
+
+
+---
+
+Website Headline
+
+Your Business Never Sleeps.
+Neither Does Your AI Receptionist.
+
+Subheadline:
+
+Carai helps salons, barbershops, beauty studios, and stores answer customers, capture leads, and manage bookings automatically.
+
+CTA:
+
+Try Carai Free
+
+
+---
+
+PART 2 — Target-Specific Messaging
+
+Different industries have different pain points.
+
+
+---
+
+Hair Salons
+
+Pain:
+
+Too many WhatsApp messages
+
+Customers asking prices repeatedly
+
+Appointment scheduling takes time
+
+
+Message:
+
+> "Your stylists should focus on clients, not answering the same questions all day."
+
+
+
+
+---
+
+Barbershops
+
+Pain:
+
+Missed appointment requests
+
+Customers asking availability
+
+Peak hours are busy
+
+
+Message:
+
+> "While you're cutting hair, Carai handles the next customer waiting."
+
+
+
+
+---
+
+Beauty Studios
+
+Pain:
+
+Service explanations
+
+Package questions
+
+Consultation requests
+
+
+Message:
+
+> "Give every customer a personal assistant before they even visit."
+
+
+
+
+---
+
+Nail Salons
+
+Pain:
+
+Appointment coordination
+
+Service combinations
+
+Pricing questions
+
+
+Message:
+
+> "Carai helps customers choose services and book faster."
+
+
+
+
+---
+
+Retail/Wholesale
+
+Pain:
+
+Product questions
+
+Stock questions
+
+Repeated inquiries
+
+
+Message:
+
+> "Turn customer questions into sales opportunities automatically."
+
+
+
+
+---
+
+PART 3 — First Contact Scripts
+
+Instagram DM
+
+Hi [Business Name],
+
+I came across your page and noticed you have an active customer base.
+
+I’m building Carai, an AI receptionist that helps businesses answer customer questions, capture leads, and handle bookings automatically.
+
+I’d love to show you a quick demo. It takes about 5 minutes.
+
+Would you be interested?
+
+
+---
+
+WhatsApp Message
+
+Hi, I'm Raphael from Carai.
+
+We help businesses like salons and barbershops respond to customers instantly using an AI receptionist.
+
+It can answer questions about services, prices, availability, and help capture bookings.
+
+Would you like to see a quick demo?
+
+
+---
+
+Email Outreach
+
+Subject:
+
+Never miss another customer message
+
+Body:
+
+Hi [Name],
+
+Many businesses lose customers simply because messages go unanswered while they are busy serving clients.
+
+Carai is an AI receptionist designed for businesses like yours.
+
+It can:
+- Answer customer questions
+- Share service information
+- Capture leads
+- Assist with bookings
+
+I would like to show you a short demo.
+
+Would you have 10 minutes this week?
+
+Regards,
+Raphael
+
+
+---
+
+PART 4 — Demo Structure
+
+Do not start with features.
+
+Start with their problem.
+
+
+---
+
+Step 1 — Discovery
+
+Ask:
+
+"How do customers usually contact you?"
+
+Listen for:
+
+WhatsApp
+
+Instagram
+
+Phone
+
+Website
+
+
+
+---
+
+Ask:
+
+"How often do messages come in when you are busy?"
+
+
+---
+
+Ask:
+
+"What questions do customers ask repeatedly?"
+
+
+---
+
+Step 2 — Show The Problem
+
+Say:
+
+"Imagine someone messages you at 9 PM asking about prices or availability."
+
+
+---
+
+Step 3 — Show Carai
+
+Demo:
+
+Customer:
+
+Hi, how much is a haircut?
+
+Carai:
+
+Welcome to Bella Studio.
+
+Our haircut service starts at $30.
+
+Would you like to check available times?
+
+
+---
+
+Then:
+
+Customer:
+
+Do you have anything available tomorrow?
+
+Carai:
+
+I found these available times...
+
+
+---
+
+Step 4 — Show Business Value
+
+Explain:
+
+"The goal isn't replacing your staff. The goal is making sure every potential customer gets helped."
+
+
+---
+
+PART 5 — Sales Call Structure
+
+15-Minute Demo
+
+
+---
+
+Minutes 0-3
+
+Understand business.
+
+Questions:
+
+How many customers contact you weekly?
+
+How do people book?
+
+How much time do you spend answering messages?
+
+
+
+---
+
+Minutes 3-8
+
+Demo.
+
+Show:
+
+Customer chat
+
+Knowledge
+
+Booking
+
+Leads
+
+
+
+---
+
+Minutes 8-12
+
+Explain benefits.
+
+
+---
+
+Minutes 12-15
+
+Close.
+
+Say:
+
+"We can set this up for your business and have it running quickly."
+
+
+---
+
+PART 6 — Objection Handling
+
+
+---
+
+"AI won't understand my customers."
+
+Response:
+
+> That's exactly why Carai learns your business information, services, pricing, and policies. It is trained around your business, not a generic chatbot.
+
+
+
+
+---
+
+"I already answer messages myself."
+
+Response:
+
+> That's great, but the goal is not replacing you. It's helping you handle customers when you're busy, closed, or focused on clients.
+
+
+
+
+---
+
+"It's too expensive."
+
+Response:
+
+> One missed customer can already cost more than the monthly subscription. Carai is designed to recover those opportunities.
+
+
+
+
+---
+
+"Customers want humans."
+
+Response:
+
+> Customers still have the option for human help. Carai handles the simple questions and passes important situations to your team.
+
+
+
+
+---
+
+PART 7 — Closing Offer
+
+Early customers:
+
+Founder Program
+
+Carai Founder Partner
+
+$49/month
+
+Locked pricing
+
+Early access
+
+Direct feedback channel
+
+Limited:
+
+First 20 businesses.
+
+
+---
+
+PART 8 — Customer Onboarding Script
+
+After payment:
+
+Message:
+
+Welcome to Carai!
+
+We'll help you set up your AI receptionist.
+
+Step 1:
+Add your business information.
+
+Step 2:
+Add your services/products.
+
+Step 3:
+Train your AI.
+
+Step 4:
+Test conversations.
+
+Step 5:
+Launch.
+
+Most businesses are ready within one day.
+
+
+---
+
+PART 9 — Referral System
+
+After success:
+
+Ask:
+
+Do you know another business owner who receives lots of customer messages?
+
+We'd love to help them too.
+
+Reward:
+
+One free month
+
+Extra credits
+
+Premium features
+
+
+
+---
+
+PART 10 — Landing Page Structure
+
+Hero
+
+Your AI Receptionist For Your Business
+
+
+---
+
+Problem
+
+Customers expect instant answers.
+Businesses are too busy to respond every time.
+
+
+---
+
+Solution
+
+Carai handles customer conversations automatically.
+
+
+---
+
+Features
+
+Cards:
+
+Customer Conversations
+
+Answer questions instantly.
+
+
+---
+
+Lead Capture
+
+Never lose potential customers.
+
+
+---
+
+Booking Assistance
+
+Help customers schedule.
+
+
+---
+
+Business Knowledge
+
+Teach Carai your services.
+
+
+---
+
+Social Proof
+
+Initially:
+
+Founder testimonials.
+
+Later:
+
+Customer results.
+
+
+---
+
+PART 11 — First 100 Customer Strategy
+
+First 10
+
+Manual outreach.
+
+Goal:
+
+Learn.
+
+
+---
+
+10-50
+
+Create repeatable process.
+
+Add:
+
+Testimonials
+
+Referrals
+
+Partnerships
+
+
+
+---
+
+50-100
+
+Scale:
+
+Local business associations
+
+Marketing agencies
+
+Website designers
+
+Social media managers
+
+
+
+---
+
+PART 12 — Sales Assets To Create Before Launch
+
+Required:
+
+✅ Landing page
+✅ Demo business
+✅ Demo video
+✅ Pricing page
+✅ Sales PDF
+✅ Outreach spreadsheet
+✅ Customer onboarding checklist
+✅ Support documentation
+
+
+---
+
+Final Principle
+
+Carai is not selling software.
+
+Carai is selling:
+
+> "A reliable employee who answers every customer, every time."
+
+
+
+
+---
+
+Next Document
+
+Document 25 — Carai AI Receptionist V1 Launch Operations Manual
+
+This will cover:
+
+Daily operations after launch
+
+Customer support
+
+Bug handling
+
+AI improvement cycle
+
+Feature prioritization
+
+Customer feedback system
+
+Release process
+
+Scaling from 10 → 100 → 1000 customers
+
+
+After that, the complete V1 roadmap package will be finished.

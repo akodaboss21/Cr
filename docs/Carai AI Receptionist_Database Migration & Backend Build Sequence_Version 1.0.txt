@@ -1,0 +1,823 @@
+Document 19
+
+Carai AI Receptionist
+
+Database Migration & Backend Build Sequence
+
+Version 1.0
+
+
+---
+
+1. Backend Development Philosophy
+
+The backend is built in layers.
+
+Do not create all tables first.
+
+Build vertical slices.
+
+Meaning:
+
+A small complete feature from database → API → frontend → user value.
+
+Example:
+
+Business Setup:
+
+Database
+
+↓
+
+Backend Service
+
+↓
+
+API Endpoint
+
+↓
+
+Dashboard Screen
+
+↓
+
+Working Feature
+
+
+---
+
+2. Initial Backend Repository
+
+Structure:
+
+apps/api/
+
+app/
+
+├── main.py
+
+├── core/
+│   ├── config.py
+│   ├── security.py
+│   ├── database.py
+│   ├── logging.py
+│   └── exceptions.py
+│
+├── modules/
+│
+│   ├── auth/
+│   ├── organizations/
+│   ├── businesses/
+│   ├── services/
+│   ├── products/
+│   ├── customers/
+│   ├── conversations/
+│   ├── knowledge/
+│   ├── ai/
+│   ├── bookings/
+│   ├── billing/
+│   └── analytics/
+│
+├── workers/
+│
+├── tests/
+│
+└── migrations/
+
+
+---
+
+3. Database Migration Order
+
+The order matters because tables depend on each other.
+
+
+---
+
+Migration 001
+
+Core System
+
+Create:
+
+organizations
+users
+memberships
+roles
+permissions
+
+Purpose:
+
+Everything needs ownership.
+
+
+---
+
+Seed Data
+
+Create default roles:
+
+Owner
+
+Admin
+
+Manager
+
+Staff
+
+Developer
+
+Viewer
+
+
+---
+
+Migration 002
+
+Business Foundation
+
+Create:
+
+businesses
+
+locations
+
+business_hours
+
+business_settings
+
+Purpose:
+
+The AI needs to understand the business.
+
+
+---
+
+Migration 003
+
+Services & Products
+
+Create:
+
+services
+
+service_categories
+
+products
+
+product_categories
+
+inventory
+
+Purpose:
+
+Supports both:
+
+Salons
+
+Retail/Wholesale
+
+
+
+---
+
+Migration 004
+
+Team Management
+
+Create:
+
+staff
+
+staff_availability
+
+staff_services
+
+Purpose:
+
+Supports:
+
+Stylists
+
+Barbers
+
+Nail technicians
+
+Store employees
+
+
+
+---
+
+Migration 005
+
+CRM Foundation
+
+Create:
+
+customers
+
+customer_tags
+
+customer_notes
+
+customer_preferences
+
+Purpose:
+
+Every interaction creates customer intelligence.
+
+
+---
+
+Migration 006
+
+Conversations
+
+Create:
+
+conversations
+
+messages
+
+conversation_states
+
+Purpose:
+
+The AI communication layer.
+
+
+---
+
+Migration 007
+
+AI Runtime
+
+Create:
+
+ai_providers
+
+ai_models
+
+ai_requests
+
+prompts
+
+prompt_versions
+
+Purpose:
+
+Provider-independent AI.
+
+
+---
+
+Migration 008
+
+Knowledge System
+
+Create:
+
+knowledge_documents
+
+knowledge_chunks
+
+knowledge_sources
+
+embeddings
+
+Purpose:
+
+Business-specific AI knowledge.
+
+
+---
+
+Migration 009
+
+Leads
+
+Create:
+
+leads
+
+lead_events
+
+lead_scores
+
+Purpose:
+
+Turn conversations into business opportunities.
+
+
+---
+
+Migration 010
+
+Booking System
+
+Create:
+
+appointments
+
+appointment_events
+
+availability_rules
+
+Purpose:
+
+Scheduling.
+
+
+---
+
+Migration 011
+
+Notifications
+
+Create:
+
+notifications
+
+notification_templates
+
+notification_logs
+
+Purpose:
+
+Email/SMS/WhatsApp readiness.
+
+
+---
+
+Migration 012
+
+Billing
+
+Create:
+
+plans
+
+subscriptions
+
+usage_records
+
+credits
+
+transactions
+
+Purpose:
+
+Monetization.
+
+
+---
+
+Migration 013
+
+Analytics
+
+Create:
+
+analytics_events
+
+daily_metrics
+
+Purpose:
+
+Business insights.
+
+
+---
+
+4. Backend Module Development Order
+
+
+---
+
+Sprint 1
+
+Authentication Module
+
+Build:
+
+Supabase auth integration
+
+JWT verification
+
+User session
+
+Organization context
+
+
+Endpoints:
+
+GET /auth/me
+POST /auth/logout
+
+
+---
+
+Sprint 2
+
+Organization Module
+
+Build:
+
+Create organization
+
+Invite members
+
+Roles
+
+Permissions
+
+
+
+---
+
+Sprint 3
+
+Business Setup Module
+
+Build:
+
+Business profile
+
+Industry templates
+
+Hours
+
+Settings
+
+
+
+---
+
+At this point:
+
+A business can exist.
+
+
+---
+
+Sprint 4
+
+Catalog Module
+
+Build:
+
+Services
+
+Products
+
+Staff
+
+Inventory
+
+
+---
+
+At this point:
+
+A salon or store can configure itself.
+
+
+---
+
+Sprint 5
+
+AI Runtime Foundation
+
+Build:
+
+LLM Gateway
+
+Provider adapters
+
+OpenAI compatible client
+
+Ollama adapter
+
+Prompt system
+
+
+---
+
+Test:
+
+Example:
+
+User:
+"What services do you offer?"
+
+AI:
+
+Uses business knowledge.
+
+
+---
+
+Sprint 6
+
+Knowledge Engine
+
+Build:
+
+Upload documents
+
+Extract text
+
+Create embeddings
+
+Retrieve context
+
+
+---
+
+Example:
+
+Upload:
+
+"Price list.pdf"
+
+AI answers:
+
+"Hair coloring starts at..."
+
+
+---
+
+Sprint 7
+
+Conversation Engine
+
+Build:
+
+Chat API
+
+Streaming responses
+
+Conversation history
+
+Memory
+
+
+---
+
+Sprint 8
+
+Reception Agent
+
+Build:
+
+Intent detection
+
+Tools
+
+Business rules
+
+Lead capture
+
+
+---
+
+Sprint 9
+
+Booking
+
+Build:
+
+Availability
+
+Appointment creation
+
+Confirmation
+
+
+---
+
+Sprint 10
+
+Dashboard APIs
+
+Build:
+
+Analytics
+
+Inbox
+
+Customer views
+
+
+---
+
+Sprint 11
+
+Billing
+
+Build:
+
+Plans
+
+Credits
+
+Usage tracking
+
+
+---
+
+5. First API Endpoints To Implement
+
+Minimum working product:
+
+Business
+
+POST /business
+
+GET /business
+
+PATCH /business
+
+
+---
+
+Services
+
+POST /services
+
+GET /services
+
+
+---
+
+AI Chat
+
+POST /ai/chat/completions
+
+
+---
+
+Conversations
+
+POST /conversations
+
+GET /conversations/{id}
+
+POST /messages
+
+
+---
+
+Leads
+
+POST /leads
+
+GET /leads
+
+
+---
+
+6. Initial Seed Data
+
+Development database should include:
+
+Demo Salon
+
+Carai Beauty Studio
+
+Services:
+
+Haircut
+Hair Coloring
+Treatment
+Styling
+
+Staff:
+
+Sarah
+Michael
+
+
+---
+
+Demo Retail Store
+
+Carai Market
+
+Products:
+
+Shampoo
+Cosmetics
+Accessories
+
+
+---
+
+This allows testing immediately.
+
+
+---
+
+7. First AI Test Scenario
+
+Before UI exists:
+
+Run:
+
+Customer:
+"Hi, do you have appointments tomorrow?"
+
+↓
+
+Reception Agent
+
+↓
+
+Checks business hours
+
+↓
+
+Checks availability
+
+↓
+
+Creates booking request
+
+↓
+
+Returns confirmation
+
+
+---
+
+8. Definition of Backend MVP Complete
+
+Backend is MVP-ready when:
+
+✅ Business can register
+
+✅ Business can configure services/products
+
+✅ AI can understand business information
+
+✅ Customer can chat
+
+✅ AI can answer questions
+
+✅ AI can capture leads
+
+✅ AI can create appointment requests
+
+✅ Owner can retrieve conversations
+
+
+---
+
+9. Future Compatibility
+
+This structure prepares for:
+
+Admin ESA
+
+Uses:
+
+Organizations
+
+Customers
+
+Tasks
+
+Agents
+
+Events
+
+
+
+---
+
+DevOS
+
+Uses:
+
+APIs
+
+Tools
+
+Workflows
+
+Agents
+
+
+
+---
+
+Atelier
+
+Uses:
+
+AI Runtime
+
+Files
+
+Assets

@@ -1,0 +1,67 @@
+Document 16
+
+Carai Engineering Standards
+
+
+---
+
+Backend
+
+Python:
+
+3.12+
+
+FastAPI
+
+Pydantic
+
+Async where appropriate
+
+Typed code
+
+
+---
+
+Frontend
+
+Next.js
+
+TypeScript
+
+Tailwind
+
+shadcn/ui
+
+
+---
+
+Code Rules
+
+No business logic in routes.
+
+Services handle logic.
+
+Repositories handle data.
+
+Tests required.
+
+Documentation required.
+
+
+---
+
+Git Rules
+
+Branches:
+
+feature/
+
+bugfix/
+
+hotfix/
+
+release/
+
+Commits:
+
+Conventional commits.

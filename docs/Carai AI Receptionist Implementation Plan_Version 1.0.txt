@@ -1,0 +1,753 @@
+The goal:
+
+> Build a profitable MVP that can onboard real businesses quickly while laying the correct foundation for Admin ESA, DevOS, and future products.
+
+
+
+
+---
+
+Document 18
+
+Carai AI Receptionist Implementation Plan
+
+Version 1.0
+
+
+---
+
+1. Development Strategy
+
+Build Order Principle
+
+We build in this order:
+
+Foundation
+     ↓
+Business Data
+     ↓
+AI Brain
+     ↓
+Customer Interaction
+     ↓
+Business Actions
+     ↓
+Revenue Features
+     ↓
+Advanced Automation
+
+Do not build flashy features before the core loop works.
+
+
+---
+
+2. MVP Definition
+
+The first sellable version:
+
+A business owner can:
+
+1. Create an account.
+
+
+2. Create their business profile.
+
+
+3. Add services/products.
+
+
+4. Train their AI.
+
+
+5. Install a chat widget.
+
+
+6. Receive customer conversations.
+
+
+7. Capture leads.
+
+
+8. Receive booking requests.
+
+
+9. View analytics.
+
+
+
+That is enough to charge money.
+
+
+---
+
+3. Repository Architecture
+
+I recommend a monorepo.
+
+carai/
+
+├── apps/
+│
+│   ├── web/
+│   │   └── Next.js Dashboard
+│   │
+│   ├── api/
+│   │   └── FastAPI Backend
+│   │
+│   └── widget/
+│       └── Embeddable Chat Widget
+│
+├── packages/
+│
+│   ├── ai-sdk/
+│   │
+│   ├── python-sdk/
+│   │
+│   ├── ui/
+│   │
+│   ├── types/
+│   │
+│   └── config/
+│
+├── workers/
+│
+│   └── pyrunner/
+│
+├── infrastructure/
+│
+│   ├── docker/
+│   ├── nginx/
+│   └── deployment/
+│
+├── docs/
+│
+└── tests/
+
+
+---
+
+4. Technology Stack
+
+Frontend
+
+Required:
+
+Next.js 16 LTS
+
+React 19
+
+TypeScript
+
+Tailwind CSS
+
+shadcn/ui
+
+
+
+---
+
+Backend
+
+Python 3.12+
+
+FastAPI
+
+Pydantic v2
+
+SQLAlchemy or Supabase client
+
+Async architecture
+
+
+
+---
+
+Database
+
+Supabase PostgreSQL
+
+pgvector
+
+Row Level Security
+
+Storage
+
+
+
+---
+
+AI
+
+Compatible with:
+
+OpenAI
+
+Ollama
+
+Any OpenAI-compatible endpoint
+
+
+
+---
+
+Execution
+
+PyRunner:
+
+Responsible for:
+
+Background jobs
+
+AI workflows
+
+Long-running tasks
+
+Scheduled actions
+
+
+
+---
+
+5. Build Milestones
+
+
+---
+
+Milestone 0
+
+Project Foundation
+
+Duration: 1 week
+
+Build:
+
+Repository
+
+Docker
+
+Environment setup
+
+CI/CD
+
+Code standards
+
+Database connection
+
+Authentication skeleton
+
+
+---
+
+Deliverable:
+
+Developers can clone, run, and deploy.
+
+
+---
+
+Milestone 1
+
+Identity + Organizations
+
+Duration: 1-2 weeks
+
+Build:
+
+Supabase Auth
+
+Organizations
+
+Users
+
+Roles
+
+Permissions
+
+Tenant isolation
+
+
+---
+
+User Flow:
+
+Sign Up
+
+↓
+
+Create Organization
+
+↓
+
+Invite Team
+
+↓
+
+Dashboard
+
+
+---
+
+Milestone 2
+
+Business Setup
+
+Duration: 1 week
+
+Build:
+
+Business profile
+
+Industry selection
+
+Services
+
+Products
+
+Staff
+
+Hours
+
+Policies
+
+
+---
+
+Industry onboarding templates added here.
+
+
+---
+
+Milestone 3
+
+AI Foundation
+
+Duration: 2 weeks
+
+Build:
+
+LLM Gateway
+
+Provider adapters
+
+Prompt Registry
+
+Token tracking
+
+AI settings
+
+Model selection
+
+
+---
+
+Test:
+
+OpenAI
+
+Ollama
+
+Local models
+
+
+---
+
+Milestone 4
+
+Knowledge System
+
+Duration: 2 weeks
+
+Build:
+
+Document upload
+
+FAQ system
+
+Embeddings
+
+Vector search
+
+Knowledge retrieval
+
+AI testing interface
+
+
+---
+
+Example:
+
+Owner uploads:
+
+"Salon price list PDF"
+
+AI learns it.
+
+
+---
+
+Milestone 5
+
+Conversation Engine
+
+Duration: 2-3 weeks
+
+Build:
+
+Chat API
+
+Conversation storage
+
+Message history
+
+AI responses
+
+Streaming
+
+Memory
+
+
+---
+
+Customer Flow:
+
+Customer opens chat
+
+↓
+
+AI greets
+
+↓
+
+Answers question
+
+↓
+
+Captures lead
+
+↓
+
+Offers booking
+
+
+---
+
+Milestone 6
+
+Reception Agent
+
+Duration: 2 weeks
+
+Build:
+
+Intent system
+
+Tool calling
+
+Business rules
+
+Escalation
+
+Summaries
+
+
+---
+
+Tools:
+
+search_services()
+
+search_products()
+
+create_lead()
+
+check_availability()
+
+create_booking()
+
+notify_staff()
+
+
+---
+
+Milestone 7
+
+Dashboard
+
+Duration: 2 weeks
+
+Build:
+
+Inbox
+
+Customers
+
+Leads
+
+Bookings
+
+Analytics
+
+Settings
+
+
+---
+
+Milestone 8
+
+Chat Widget
+
+Duration: 1-2 weeks
+
+Build:
+
+Embeddable script
+
+Customization
+
+Branding
+
+Realtime chat
+
+Mobile support
+
+
+---
+
+Milestone 9
+
+Payments
+
+Duration: 1 week
+
+Build:
+
+Stripe
+
+Plans
+
+Credits
+
+Usage limits
+
+Billing portal
+
+
+---
+
+6. First Customer Beta
+
+Do NOT wait for perfection.
+
+Target:
+
+10 businesses.
+
+Suggested:
+
+2 barbershops
+
+2 salons
+
+2 beauty studios
+
+2 nail salons
+
+2 retail stores
+
+
+
+---
+
+7. Beta Success Metrics
+
+Track:
+
+Activation
+
+Can they set up in 15 minutes?
+
+
+---
+
+Usage
+
+Messages/day.
+
+
+---
+
+Value
+
+Leads captured.
+
+Appointments created.
+
+
+---
+
+Quality
+
+AI accuracy.
+
+Human takeover rate.
+
+
+---
+
+Revenue
+
+Conversion to paid.
+
+
+---
+
+8. AI Coding Agent Workflow
+
+Since you use AI heavily, we should structure development around agents.
+
+Each task should include:
+
+Context
+
+Goal
+
+Files allowed to modify
+
+Architecture rules
+
+Acceptance criteria
+
+Tests required
+
+Example:
+
+> Build Conversation Service.
+
+Follow existing FastAPI module structure.
+
+Do not place business logic in routes.
+
+Add tests.
+
+Add API documentation.
+
+
+
+
+---
+
+9. First 30 Days Development Schedule
+
+Week 1
+
+Foundation:
+
+Repo
+
+Docker
+
+Supabase
+
+Auth
+
+UI system
+
+
+
+---
+
+Week 2
+
+Business:
+
+Organizations
+
+Profiles
+
+Services
+
+Products
+
+
+
+---
+
+Week 3
+
+AI:
+
+Gateway
+
+Ollama
+
+OpenAI compatibility
+
+Prompts
+
+
+
+---
+
+Week 4
+
+First AI receptionist:
+
+Chat
+
+Knowledge
+
+Lead capture
+
+
+
+---
+
+10. MVP Cut Line
+
+Things NOT in v1:
+
+❌ Voice calls
+
+❌ Full WhatsApp ecosystem
+
+❌ Advanced automation builder
+
+❌ Marketplace
+
+❌ Multi-agent collaboration
+
+❌ Full Admin ESA
+
+❌ DevOS integration
+
+Those come later.
+
+
+---
+
+11. First Revenue Version
+
+The first version we sell:
+
+> "An AI receptionist that answers your customers, captures leads, and helps you get more bookings."
+
+
+
+Not:
+
+> "An AI operating system."
+
+
+
+The bigger vision stays underneath.
+
+
+---
+
+12. After MVP
+
+Once customers pay:
+
+Then expand:
+
+Carai AI Receptionist + DevOS customization + Admin ESA intelligence + Atelier creative tools

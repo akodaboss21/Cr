@@ -1,0 +1,74 @@
+Document 12
+
+Billing & Credit System
+
+
+---
+
+Subscription
+
+Controls:
+
+Features
+
+Seats
+
+Access
+
+
+---
+
+Credits
+
+Controls:
+
+AI usage
+
+Images
+
+Voice
+
+Large models
+
+
+---
+
+Example:
+
+Professional Plan:
+
+Includes:
+
+5 team members
+
+AI Receptionist
+
+10,000 credits/month
+
+
+
+---
+
+Feature Gates
+
+Examples:
+
+Free:
+
+Basic chatbot
+
+Starter:
+
+Lead capture
+
+Professional:
+
+Bookings
+
+Business:
+
+Advanced agents
+
+Enterprise:
+
+Custom AI

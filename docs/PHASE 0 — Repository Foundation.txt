@@ -1,0 +1,820 @@
+PHASE 0 — Repository Foundation
+
+Prompt 0.1 — Create Monorepo
+
+Paste into Windsurf:
+
+You are a senior software architect.
+
+Create the initial Carai AI Receptionist V1 monorepo.
+
+Requirements:
+
+Repository name:
+carai
+
+Architecture:
+
+carai/
+ ├── apps/
+ │   ├── api/
+ │   ├── web/
+ │   └── widget/
+ │
+ ├── packages/
+ │   ├── shared-types/
+ │   ├── ui/
+ │   └── config/
+ │
+ ├── infrastructure/
+ │
+ ├── docs/
+ │
+ └── tests/
+
+
+Rules:
+
+- Production-grade structure.
+- Do not add unnecessary dependencies.
+- Prepare for future Admin ESA, DevOS, and Atelier modules.
+- Use clean separation.
+- Add README.
+- Add environment examples.
+- Add Docker foundations.
+
+Do not implement business features yet.
+
+After completion:
+1. Explain created structure.
+2. Explain how to run locally.
+3. Verify no errors.
+
+
+---
+
+BACKEND BUILD STARTS
+
+Backend stack:
+
+FastAPI
+
+Python 3.12+
+
+Supabase
+
+PostgreSQL
+
+SQLAlchemy
+
+Alembic
+
+Pydantic v2
+
+JWT
+
+Pytest
+
+
+
+---
+
+PHASE 1 — Backend Foundation
+
+Prompt 1.1 — FastAPI Core
+
+Build the Carai backend foundation.
+
+Location:
+
+apps/api
+
+
+Use:
+
+Python 3.12+
+FastAPI
+Pydantic v2
+SQLAlchemy 2
+Alembic
+Pytest
+
+
+Create:
+
+app/
+ ├── main.py
+ ├── core/
+ ├── database/
+ ├── models/
+ ├── schemas/
+ ├── services/
+ ├── repositories/
+ ├── api/
+ ├── middleware/
+ └── tests/
+
+
+Implement:
+
+- FastAPI application factory
+- Configuration management
+- Environment variables
+- Structured logging
+- Error handling
+- CORS configuration
+- Health endpoint
+
+
+Endpoint:
+
+GET /health
+
+
+Response:
+
+{
+ "status":"ok",
+ "service":"carai-api"
+}
+
+
+Requirements:
+
+- Clean architecture.
+- No business logic in routes.
+- Add tests.
+- Add Dockerfile.
+- Add requirements.
+
+
+Run tests before finishing.
+
+
+---
+
+PHASE 2 — Database Foundation
+
+Prompt 2.1 — Supabase Database Layer
+
+Implement the Carai database foundation.
+
+Use:
+
+PostgreSQL
+Supabase compatible
+SQLAlchemy 2
+Alembic migrations
+
+
+Create initial models:
+
+Organization
+
+User
+
+Membership
+
+Role
+
+Permission
+
+
+Requirements:
+
+Every tenant-owned table must include:
+
+id UUID
+organization_id
+created_at
+updated_at
+
+
+Implement:
+
+- Database connection
+- Models
+- Relationships
+- Alembic migration
+- Seed default roles
+
+
+Roles:
+
+Owner
+Admin
+Manager
+Staff
+Developer
+Viewer
+
+
+Add database tests.
+
+Do not create future tables yet.
+Only identity foundation.
+
+
+---
+
+PHASE 3 — Authentication
+
+Prompt 3.1
+
+Implement authentication for Carai.
+
+Use Supabase Auth.
+
+Requirements:
+
+Support:
+
+- Email magic link
+- JWT verification
+- Current user retrieval
+
+
+Create:
+
+GET /auth/me
+
+POST /auth/logout
+
+
+Implement:
+
+- Auth middleware
+- Organization context
+- Permission dependency system
+
+
+Example:
+
+require_permission(
+"manage_business"
+)
+
+
+Add tests.
+
+Security first.
+
+
+---
+
+PHASE 4 — Organization System
+
+Prompt 4.1
+
+Build organization management.
+
+Features:
+
+Create organization.
+
+Update organization.
+
+Invite members.
+
+Manage roles.
+
+
+Endpoints:
+
+POST /organizations
+
+GET /organizations/{id}
+
+PATCH /organizations/{id}
+
+GET /organizations/{id}/members
+
+POST /organizations/{id}/members
+
+
+Rules:
+
+Users only access organizations they belong to.
+
+Implement RLS-compatible logic.
+
+Add tests.
+
+
+---
+
+PHASE 5 — Business Setup
+
+Prompt 5.1
+
+Build the Business Management module.
+
+Create:
+
+businesses
+locations
+business_hours
+business_settings
+
+
+Support industries:
+
+hair_salon
+barbershop
+beauty_studio
+nail_salon
+retail_wholesale
+
+
+Endpoints:
+
+POST /business
+
+GET /business
+
+PATCH /business
+
+GET /business/hours
+
+PATCH /business/hours
+
+
+Add validation.
+
+Add tests.
+
+
+---
+
+PHASE 6 — Services, Products, Staff
+
+Prompt 6.1
+
+Build the catalog system.
+
+Create:
+
+services
+
+service_categories
+
+products
+
+product_categories
+
+inventory
+
+staff
+
+staff_availability
+
+
+Endpoints:
+
+CRUD for all resources.
+
+
+Requirements:
+
+Support both:
+
+Service businesses:
+- salons
+- barbers
+- beauty
+
+
+Retail:
+- products
+- inventory
+- wholesale
+
+
+Add tests.
+
+
+---
+
+PHASE 7 — CRM
+
+Prompt 7.1
+
+Build the CRM module.
+
+Create:
+
+customers
+
+customer_notes
+
+customer_preferences
+
+customer_tags
+
+leads
+
+
+Endpoints:
+
+CRUD customers
+
+CRUD leads
+
+
+Add:
+
+lead scoring foundation.
+
+
+Do not add AI scoring yet.
+
+Add tests.
+
+
+---
+
+PHASE 8 — AI FOUNDATION
+
+This is the biggest phase.
+
+
+---
+
+Prompt 8.1 — LLM Gateway
+
+Build the Carai LLM Gateway.
+
+Purpose:
+
+Every AI request must go through this service.
+
+
+Support:
+
+OpenAI compatible APIs
+
+Ollama API
+
+
+Create provider interface:
+
+chat()
+
+stream()
+
+embeddings()
+
+models()
+
+health()
+
+
+Implement adapters:
+
+OpenAIAdapter
+
+OllamaAdapter
+
+
+Create:
+
+POST /ai/chat/completions
+
+GET /ai/models
+
+GET /ai/health
+
+
+Requirements:
+
+- Streaming support
+- Error handling
+- Provider fallback architecture
+- Token tracking
+
+
+Do not hardcode providers.
+
+
+---
+
+PHASE 9 — Prompt Registry
+
+Prompt 9.1
+
+Build the Prompt Registry system.
+
+
+Create:
+
+prompts
+
+prompt_versions
+
+
+Features:
+
+Create prompts
+
+Version prompts
+
+Activate versions
+
+Retrieve prompts
+
+
+Every AI request must reference a prompt version.
+
+
+Add tests.
+
+
+---
+
+PHASE 10 — Knowledge Base
+
+Prompt 10.1
+
+Build the Carai Knowledge System.
+
+
+Create:
+
+knowledge_documents
+
+knowledge_chunks
+
+
+Implement:
+
+- Document upload
+- Text extraction
+- Chunking
+- Embedding generation
+- Vector search
+
+
+Support:
+
+Business FAQs
+
+Services
+
+Products
+
+Policies
+
+
+Prepare for pgvector.
+
+Add tests.
+
+
+---
+
+PHASE 11 — Conversation Engine
+
+Prompt 11.1
+
+Build conversation management.
+
+
+Create:
+
+conversations
+
+messages
+
+conversation_states
+
+
+Implement:
+
+Create conversation.
+
+Store messages.
+
+Retrieve history.
+
+Stream AI responses.
+
+
+Integrate:
+
+LLM Gateway
+
+Prompt Registry
+
+Knowledge Retrieval
+
+
+Add tests.
+
+
+---
+
+PHASE 12 — Reception Agent
+
+Prompt 12.1
+
+Build the Carai Reception Agent.
+
+
+Implement:
+
+Intent detection.
+
+Tool selection.
+
+Conversation state management.
+
+Business context injection.
+
+
+Create tools:
+
+search_services()
+
+search_products()
+
+create_lead()
+
+check_availability()
+
+create_booking()
+
+notify_staff()
+
+
+Rules:
+
+AI cannot directly modify database.
+
+All actions use tools.
+
+All tools require validation.
+
+
+Add scenario tests:
+
+Booking
+
+Pricing
+
+Product inquiry
+
+Complaint
+
+Unknown question
+
+
+---
+
+PHASE 13 — Booking System
+
+Prompt 13.1
+
+Build appointment management.
+
+
+Create:
+
+appointments
+
+availability_rules
+
+
+Implement:
+
+Check availability.
+
+Create appointment.
+
+Cancel appointment.
+
+Reschedule.
+
+
+Integrate with Reception Agent tools.
+
+
+Add tests.
+
+
+---
+
+PHASE 14 — Billing
+
+Prompt 14.1
+
+Build billing foundation.
+
+
+Use Stripe.
+
+
+Create:
+
+plans
+
+subscriptions
+
+credits
+
+usage_records
+
+
+Implement:
+
+Subscription checking.
+
+Usage tracking.
+
+Credit deduction.
+
+
+Prepare feature gating.
+
+
+Add tests.
+
+
+---
+
+PHASE 15 — Backend Complete
+
+Final backend verification prompt:
+
+Perform a complete backend production audit.
+
+Check:
+
+Architecture
+
+Security
+
+Tests
+
+API documentation
+
+Database migrations
+
+Performance
+
+Error handling
+
+Environment variables
+
+Docker deployment
+
+
+Fix all issues.
+
+Generate:
+
+Backend completion report.
+
+The backend must be production-ready for Carai AI Receptionist V1.
+
+
+---
+
+NEXT MESSAGE
+
+I will provide the Frontend V1 Windsurf prompts:
+
+Next.js 16 setup
+
+Design system
+
+Dashboard
+
+Onboarding
+
+Inbox
+
+AI chat interface
+
+Knowledge UI
+
+Booking UI
+
+Analytics
+
+Billing
+
+Website widget
+
+Final production polish
+
+
+Then after frontend:
+
+Integration prompts
+
+Docker deployment prompts
+
+Beta launch checklist
+
+
+This will take you from empty repo → customer-ready SaaS.

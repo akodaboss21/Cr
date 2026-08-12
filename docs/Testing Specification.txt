@@ -1,0 +1,69 @@
+Document 15
+
+Testing Specification
+
+
+---
+
+Backend
+
+Tests:
+
+Unit
+
+Integration
+
+API
+
+Database
+
+
+---
+
+AI Testing
+
+Test:
+
+Correct answers
+
+Wrong assumptions
+
+Tool usage
+
+Escalation
+
+Safety
+
+
+---
+
+Frontend
+
+Tests:
+
+Components
+
+Flows
+
+Mobile layouts
+
+Accessibility
+
+
+---
+
+End-to-End
+
+Example:
+
+Customer:
+
+Books haircut.
+
+AI:
+
+Captures lead.
+
+Creates appointment.
+
+Sends confirmation.

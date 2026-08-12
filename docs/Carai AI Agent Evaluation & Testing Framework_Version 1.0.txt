@@ -1,0 +1,842 @@
+Document 21
+
+Carai AI Agent Evaluation & Testing Framework
+
+Version 1.0
+
+
+---
+
+1. Purpose
+
+Traditional software tests answer:
+
+> "Does the code execute correctly?"
+
+
+
+AI testing must answer:
+
+> "Does the system behave correctly, safely, and consistently?"
+
+
+
+The Reception Agent must be tested as a digital employee.
+
+
+---
+
+2. Testing Layers
+
+The AI system has five testing layers:
+
+Unit Tests
+
+↓
+
+Tool Tests
+
+↓
+
+AI Behavior Tests
+
+↓
+
+Conversation Simulation Tests
+
+↓
+
+Production Monitoring
+
+
+---
+
+3. Unit Testing
+
+Traditional code tests.
+
+Examples:
+
+Tool Functions
+
+Test:
+
+check_availability()
+
+Given:
+
+Date:
+2026-08-01
+
+Service:
+Haircut
+
+Expected:
+
+{
+"available":true
+}
+
+
+---
+
+Business Rules
+
+Example:
+
+Input:
+
+Booking Sunday 3PM
+
+Expected:
+
+Rejected
+Reason:
+Business closed
+
+
+---
+
+4. Tool Calling Evaluation
+
+The AI must correctly choose tools.
+
+
+---
+
+Example:
+
+Customer:
+
+> "Do you have appointments tomorrow?"
+
+
+
+Expected:
+
+AI calls:
+
+check_availability()
+
+Not:
+
+search_products()
+
+
+---
+
+Test metrics:
+
+Correct tool selection
+
+Correct parameters
+
+Correct order
+
+Correct handling of failures
+
+
+
+---
+
+5. Intent Classification Testing
+
+Required intents:
+
+Greeting
+
+Pricing
+
+Service Question
+
+Product Question
+
+Booking
+
+Cancellation
+
+Reschedule
+
+Complaint
+
+Human Request
+
+Wholesale Inquiry
+
+Unknown
+
+
+---
+
+Each intent should have:
+
+Example conversations
+
+Expected classification
+
+Confidence threshold
+
+
+
+---
+
+Example:
+
+Input:
+
+> "How much for braids?"
+
+
+
+Expected:
+
+{
+"intent":"pricing",
+"confidence":">0.9"
+}
+
+
+---
+
+6. Knowledge Accuracy Testing
+
+The AI must answer from business information.
+
+
+---
+
+Test:
+
+Knowledge:
+
+Haircut:
+$30
+
+Open:
+Monday-Friday
+8AM-6PM
+
+Question:
+
+> "How much is a haircut?"
+
+
+
+Expected:
+
+$30
+
+
+---
+
+Failure:
+
+AI says:
+
+"$25"
+
+Result:
+
+FAIL.
+
+
+---
+
+7. Hallucination Testing
+
+Critical.
+
+The AI must know when it does not know.
+
+
+---
+
+Example:
+
+Customer:
+
+> "Do you offer wedding makeup?"
+
+
+
+Business data:
+
+No information.
+
+Bad:
+
+> "Yes, we offer wedding makeup."
+
+
+
+Good:
+
+> "I don't have that service listed. I can connect you with the team to confirm."
+
+
+
+
+---
+
+8. Personality Testing
+
+The AI should remain consistent.
+
+
+---
+
+Evaluate:
+
+Friendly
+
+Professional
+
+Helpful
+
+Concise
+
+Brand aligned
+
+
+
+---
+
+Example:
+
+Bad:
+
+> "Yo! What's up?"
+
+
+
+For a luxury beauty studio.
+
+
+---
+
+Good:
+
+> "Welcome to Bella Beauty Studio. How may I assist you today?"
+
+
+
+
+---
+
+9. Conversation Scenario Testing
+
+Create realistic customer simulations.
+
+
+---
+
+Scenario 1
+
+New Customer Booking
+
+Customer:
+
+"I need a haircut."
+
+Expected:
+
+AI asks:
+
+Preferred date
+
+Preferred time
+
+Contact information
+
+
+Creates booking.
+
+
+---
+
+Scenario 2
+
+Product Inquiry
+
+Customer:
+
+"Do you sell shampoo?"
+
+Expected:
+
+AI:
+
+Searches products.
+
+Returns availability.
+
+Offers purchase assistance.
+
+
+---
+
+Scenario 3
+
+Returning Customer
+
+Customer:
+
+"Same appointment as last month."
+
+Expected:
+
+AI:
+
+Finds customer history.
+
+Confirms details.
+
+
+---
+
+Scenario 4
+
+Angry Customer
+
+Customer:
+
+"My appointment was cancelled and nobody told me."
+
+Expected:
+
+AI:
+
+Apologizes.
+
+Does not argue.
+
+Escalates if necessary.
+
+
+---
+
+Scenario 5
+
+Unknown Question
+
+Customer:
+
+"Can you repair my laptop?"
+
+Expected:
+
+AI:
+
+States it cannot help.
+
+Redirects appropriately.
+
+
+---
+
+10. Model Comparison Testing
+
+Because Carai supports:
+
+OpenAI
+
+Ollama
+
+OpenAI-compatible providers
+
+
+we need model benchmarks.
+
+
+---
+
+Test every model on:
+
+Accuracy
+
+Can it answer correctly?
+
+
+---
+
+Tool Usage
+
+Can it call tools?
+
+
+---
+
+Speed
+
+Response latency.
+
+
+---
+
+Cost
+
+Tokens consumed.
+
+
+---
+
+Reliability
+
+Failure rate.
+
+
+---
+
+Example benchmark:
+
+Model	Accuracy	Speed	Tool Use
+
+GPT	High	Medium	Excellent
+Qwen	High	Fast	Good
+Llama	Medium	Fast	Good
+
+
+
+---
+
+11. Regression Testing
+
+Every prompt change or model change runs the test suite.
+
+Example:
+
+Version:
+
+Reception Prompt v1.2
+
+Changed:
+
+Greeting style.
+
+Tests:
+
+100 conversations.
+
+Compare:
+
+Before vs After.
+
+
+---
+
+12. AI Evaluation Database
+
+Store:
+
+evaluation_tests
+
+evaluation_runs
+
+evaluation_results
+
+model_scores
+
+prompt_versions
+
+
+---
+
+Each run records:
+
+Model
+
+Prompt version
+
+Score
+
+Failures
+
+Latency
+
+
+
+---
+
+13. Human Review System
+
+Some conversations require human scoring.
+
+Owner can mark:
+
+👍 Good response
+
+👎 Bad response
+
+Reason:
+
+Incorrect
+
+Too long
+
+Wrong tone
+
+Wrong action
+
+Hallucination
+
+
+
+---
+
+These become future improvement data.
+
+
+---
+
+14. Production Monitoring
+
+Monitor:
+
+Customer Metrics
+
+Conversation completion
+
+Leads created
+
+Bookings created
+
+Human takeover
+
+
+
+---
+
+AI Metrics
+
+Average response time
+
+Failed tools
+
+Unknown questions
+
+Confidence scores
+
+Model failures
+
+
+
+---
+
+15. AI Safety Rules
+
+The agent must never:
+
+Reveal system prompts.
+
+Reveal private customer data.
+
+Invent policies.
+
+Override business rules.
+
+Execute unauthorized actions.
+
+Pretend to be human.
+
+
+
+---
+
+16. Launch Acceptance Criteria
+
+Before public release:
+
+Technical
+
+✅ All APIs pass tests
+✅ Database migrations work
+✅ Security checks pass
+✅ Backups configured
+
+
+---
+
+AI
+
+✅ 90%+ accuracy on internal scenarios
+✅ Tool calling reliable
+✅ No critical hallucinations
+✅ Escalation works
+
+
+---
+
+Business
+
+✅ Setup under 15 minutes
+✅ At least 5 beta businesses
+✅ Real customer conversations completed
+
+
+---
+
+17. First Coding Sprint After This Document
+
+Now we begin implementation.
+
+Sprint 0 — Foundation Setup
+
+Tasks:
+
+Repository
+
+Create:
+
+carai/
+
+with:
+
+apps/web
+apps/api
+packages
+infrastructure
+docs
+
+
+---
+
+Backend
+
+Initialize:
+
+FastAPI
+
+Environment system
+
+Supabase connection
+
+Logging
+
+Health endpoint
+
+
+First endpoint:
+
+GET /health
+
+Expected:
+
+{
+"status":"ok",
+"service":"carai-api"
+}
+
+
+---
+
+Frontend
+
+Initialize:
+
+Next.js 16
+
+TypeScript
+
+Tailwind
+
+shadcn/ui
+
+Theme system
+
+
+First page:
+
+/
+
+Shows:
+
+Carai landing shell.
+
+
+---
+
+Database
+
+Create:
+
+Migration 001:
+
+organizations
+
+users
+
+memberships
+
+roles
+
+
+
+---
+
+Development Rule Going Forward
+
+Every feature follows:
+
+Specification
+
+↓
+
+Database
+
+↓
+
+Backend Service
+
+↓
+
+API
+
+↓
+
+Frontend
+
+↓
+
+Tests
+
+↓
+
+Deployment
+
+No skipping layers.
+
+
+---
+
+Document Set Completed
+
+We now have:
+
+✅ Product Specification
+✅ Ecosystem Database
+✅ API Specification
+✅ LLM Gateway
+✅ Agent Architecture
+✅ UX/UI
+✅ Design System
+✅ Tools
+✅ Prompts
+✅ Rules
+✅ Templates
+✅ Billing
+✅ Security
+✅ DevOps
+✅ Testing
+✅ Engineering Standards
+✅ Implementation Plan
+
+
+---
+
+Next Message: Coding Begins
+
+The next step is:
+
+Carai AI Receptionist — Sprint 0: Repository Creation & Development Environment Setup
+
+We will create the actual project structure and start building the foundation.

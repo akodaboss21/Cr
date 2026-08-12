@@ -1,0 +1,958 @@
+Document 20
+
+Carai AI Receptionist Frontend Implementation Plan
+
+Version 1.0
+
+
+---
+
+1. Frontend Philosophy
+
+The frontend should achieve one thing:
+
+> Make powerful AI technology feel simple for a small business owner.
+
+
+
+The user should not feel like they are managing:
+
+APIs
+
+Models
+
+Agents
+
+Embeddings
+
+Workflows
+
+
+They should feel like they are managing:
+
+> "My digital receptionist."
+
+
+
+
+---
+
+2. Frontend Technology Stack
+
+Core
+
+Next.js 16 LTS
+React 19
+TypeScript
+Tailwind CSS
+shadcn/ui
+
+
+---
+
+Supporting Libraries
+
+Recommended:
+
+State
+
+Zustand
+
+
+For:
+
+UI state
+
+Chat state
+
+Workspace state
+
+
+
+---
+
+Server Data
+
+TanStack Query
+
+
+For:
+
+API caching
+
+Mutations
+
+Background refresh
+
+
+
+---
+
+Forms
+
+React Hook Form
+
+Zod validation
+
+
+
+---
+
+Tables
+
+TanStack Table
+
+
+
+---
+
+Charts
+
+Recharts
+
+
+
+---
+
+Animations
+
+Framer Motion
+
+
+
+---
+
+3. Frontend Repository Structure
+
+apps/web/
+
+src/
+
+├── app/
+│
+│   ├── (auth)/
+│   │
+│   ├── (dashboard)/
+│   │
+│   ├── onboarding/
+│   │
+│   ├── widget/
+│   │
+│   └── api/
+│
+├── components/
+│
+│   ├── ui/
+│   ├── layout/
+│   ├── chat/
+│   ├── dashboard/
+│   ├── forms/
+│   └── charts/
+│
+├── features/
+│
+│   ├── auth/
+│   ├── business/
+│   ├── customers/
+│   ├── conversations/
+│   ├── bookings/
+│   ├── knowledge/
+│   ├── ai/
+│   └── billing/
+│
+├── hooks/
+
+├── lib/
+
+├── stores/
+
+├── types/
+
+└── styles/
+
+
+---
+
+4. Application Layout
+
+Desktop:
+
++------------------------------------------------+
+| Logo                         Notifications     |
++------------------------------------------------+
+| Sidebar |                                   |
+|         |                                   |
+| Home    |        Main Workspace             |
+| Inbox   |                                   |
+| CRM     |                                   |
+| AI      |                                   |
+| Settings|                                   |
+|         |                                   |
++------------------------------------------------+
+
+
+---
+
+5. Navigation
+
+Sidebar:
+
+Main
+
+🏠 Dashboard
+
+💬 Inbox
+
+👥 Customers
+
+📅 Appointments
+
+📦 Products
+
+📚 Knowledge
+
+
+---
+
+AI
+
+🤖 Reception Agent
+
+🧠 AI Settings
+
+📊 AI Analytics
+
+
+---
+
+Business
+
+👥 Team
+
+🔗 Integrations
+
+💳 Billing
+
+⚙ Settings
+
+
+---
+
+Sidebar behavior:
+
+Collapsible
+
+Mobile drawer
+
+Role-based visibility
+
+
+
+---
+
+6. Onboarding Frontend
+
+This is one of the most important screens.
+
+Goal:
+
+A business owner reaches "AI Ready" quickly.
+
+
+---
+
+Screen 1
+
+Welcome
+
+Welcome to Carai
+
+Let's set up your AI receptionist.
+
+Button:
+
+Start Setup
+
+
+---
+
+Screen 2
+
+Industry Selection
+
+Cards:
+
+💇 Hair Salon
+
+💈 Barbershop
+
+💄 Beauty Studio
+
+💅 Nail Salon
+
+🛍 Retail
+
+
+---
+
+Screen 3
+
+Business Profile
+
+Form:
+
+Business name
+
+Address
+
+Phone
+
+Hours
+
+Website
+
+
+
+---
+
+Screen 4
+
+Services / Products
+
+Dynamic based on industry.
+
+
+---
+
+Screen 5
+
+Knowledge Upload
+
+Options:
+
+Upload files
+
+Add website
+
+Enter FAQs
+
+
+---
+
+Screen 6
+
+AI Preview
+
+Customer simulation:
+
+Customer:
+"What services do you offer?"
+
+AI:
+"Here are our services..."
+
+
+---
+
+7. Dashboard
+
+The dashboard answers:
+
+"Is my AI helping my business?"
+
+
+---
+
+Top Metrics
+
+Cards:
+
+Today's Conversations
+
+New Leads
+
+Appointments
+
+AI Resolution Rate
+
+
+---
+
+Activity Feed
+
+Example:
+
+10:34
+New customer asked about haircut
+
+10:40
+Appointment requested
+
+10:45
+Lead created
+
+
+---
+
+8. Inbox Interface
+
+The most-used screen.
+
+
+---
+
+Layout:
+
+Customers
+
+↓
+
+Conversation
+
+↓
+
+AI / Customer Info
+
+
+---
+
+Conversation Panel
+
+Features:
+
+Streaming AI responses
+
+Customer messages
+
+AI actions
+
+Tool execution status
+
+Human takeover
+
+
+
+---
+
+Example:
+
+🤖 Checking appointment availability...
+
+✓ Found 3 openings
+
+Would you like Friday at 3 PM?
+
+
+---
+
+9. Customer Profile UI
+
+Panel:
+
+Sarah Jones
+
+Phone
+Email
+
+History:
+
+✓ Haircut
+✓ Coloring
+
+Preferences:
+
+Prefers afternoon appointments
+
+
+---
+
+10. Knowledge UI
+
+Simple.
+
+Tabs:
+
+FAQs
+
+Question / Answer
+
+
+---
+
+Services
+
+Name
+
+Price
+
+Duration
+
+
+---
+
+Documents
+
+Upload
+
+Process
+
+Status
+
+
+---
+
+AI Training
+
+Button:
+
+"Test My AI"
+
+
+---
+
+11. AI Settings UI
+
+The owner controls personality.
+
+
+---
+
+Personality
+
+Slider:
+
+Professional ←→ Friendly
+
+Luxury ←→ Casual
+
+
+---
+
+Behavior
+
+Toggle:
+
+✓ Capture leads
+
+✓ Suggest bookings
+
+✓ Recommend products
+
+✓ Escalate complaints
+
+
+---
+
+Model Settings
+
+Advanced section:
+
+Provider:
+
+OpenAI
+
+Ollama
+
+Custom
+
+
+---
+
+Model:
+
+GPT
+
+Qwen
+
+Llama
+
+etc.
+
+
+---
+
+12. Booking UI
+
+Calendar.
+
+Views:
+
+Day
+
+Week
+
+Month
+
+
+---
+
+Appointment card:
+
+John
+
+Haircut
+
+2:00 PM
+
+Sarah (Stylist)
+
+Confirmed
+
+
+---
+
+13. Analytics UI
+
+Simple business metrics.
+
+
+---
+
+Cards:
+
+Conversation volume
+
+Conversion rate
+
+Leads generated
+
+Appointments
+
+
+---
+
+Charts:
+
+Conversations over time
+
+Popular questions
+
+Popular services
+
+AI success rate
+
+
+
+---
+
+14. Chat Widget Frontend
+
+Separate application.
+
+Structure:
+
+widget/
+
+├── launcher
+
+├── chat-window
+
+├── messages
+
+├── input
+
+├── settings
+
+└── api-client
+
+
+---
+
+Embedded:
+
+<script src="carai-widget.js">
+</script>
+
+
+---
+
+Customization:
+
+Business controls:
+
+Colors
+
+Logo
+
+Welcome text
+
+Position
+
+Language
+
+
+
+---
+
+15. Mobile Strategy
+
+Mobile is not just a smaller desktop.
+
+Primary mobile screens:
+
+Bottom navigation:
+
+Home
+
+Inbox
+
+Bookings
+
+Customers
+
+More
+
+
+---
+
+Priority:
+
+1. Inbox
+
+
+2. Bookings
+
+
+3. Customer information
+
+
+
+
+---
+
+16. Frontend Build Order
+
+
+---
+
+Sprint 1
+
+Foundation:
+
+Next.js setup
+
+Auth pages
+
+Layout
+
+Design system
+
+Theme
+
+
+
+---
+
+Sprint 2
+
+Dashboard:
+
+Navigation
+
+Cards
+
+Empty states
+
+
+
+---
+
+Sprint 3
+
+Business Setup:
+
+Forms
+
+Services
+
+Products
+
+
+
+---
+
+Sprint 4
+
+AI Chat:
+
+Inbox
+
+Streaming messages
+
+Conversations
+
+
+
+---
+
+Sprint 5
+
+Knowledge:
+
+Upload
+
+FAQ management
+
+AI testing
+
+
+
+---
+
+Sprint 6
+
+Bookings:
+
+Calendar
+
+Appointment management
+
+
+
+---
+
+Sprint 7
+
+Analytics:
+
+Charts
+
+Reports
+
+
+
+---
+
+Sprint 8
+
+Widget:
+
+Embed
+
+Customization
+
+Production polish
+
+
+
+---
+
+17. Frontend Quality Standards
+
+Every page must have:
+
+Loading State
+
+Skeleton UI.
+
+
+---
+
+Empty State
+
+Explain what to do next.
+
+
+---
+
+Error State
+
+Helpful recovery.
+
+
+---
+
+Permission State
+
+Explain restricted access.
+
+
+---
+
+Mobile Layout
+
+Required.
+
+
+---
+
+18. AI-Friendly Development
+
+Each component should have:
+
+Clear purpose
+
+Type definitions
+
+Documentation
+
+Tests
+
+Storybook example (recommended)
+
+
+
+---
+
+19. Future Compatibility
+
+The frontend architecture should allow future products:
+
+Admin ESA
+
+New modules:
+
+Executive dashboard
+
+Goals
+
+Tasks
+
+Agents
+
+
+
+---
+
+DevOS
+
+New modules:
+
+Workspace
+
+Canvas
+
+Agents
+
+Flows
+
+
+
+---
+
+Atelier
+
+New modules:
+
+Creative workspace
+
+Assets
+
+Templates
+
+
+
+---
+
+Frontend MVP Completion
+
+The frontend is ready when:
+
+✅ Business can onboard
+✅ Owner can configure AI
+✅ Customers can chat
+✅ Staff can manage conversations
+✅ Leads are visible
+✅ Bookings are visible
+✅ Analytics display value
+✅ Widget works on external websites

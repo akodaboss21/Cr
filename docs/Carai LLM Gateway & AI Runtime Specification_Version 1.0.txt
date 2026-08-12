@@ -1,0 +1,820 @@
+Carai LLM Gateway & AI Runtime Specification
+
+Version 1.0
+
+
+---
+
+Purpose
+
+The LLM Gateway provides a single AI interface for every Carai product.
+
+No product communicates directly with OpenAI, Ollama, or any other provider.
+
+Instead:
+
+Product
+
+↓
+
+Carai AI Runtime
+
+↓
+
+LLM Gateway
+
+↓
+
+Provider Adapter
+
+↓
+
+Model
+
+This allows providers to be added, removed, or switched without changing application code.
+
+
+---
+
+Core Responsibilities
+
+The AI Runtime is responsible for:
+
+Model Routing
+
+Provider Selection
+
+Prompt Registry
+
+Tool Calling
+
+Structured Outputs
+
+Conversation Memory
+
+RAG
+
+Embeddings
+
+Token Accounting
+
+Streaming
+
+Safety
+
+Retry Logic
+
+Provider Failover
+
+Cost Tracking
+
+Logging
+
+Telemetry
+
+
+
+---
+
+High Level Architecture
+
+Admin ESA
+                     │
+                 DevOS
+                     │
+              AI Receptionist
+                     │
+              AI Sales Agent
+                     │
+             AI Marketing Agent
+                     │
+                 Atelier
+                     │
+            ─────────────────────
+               Carai AI Runtime
+            ─────────────────────
+                     │
+             LLM Gateway API
+                     │
+     ┌───────────────┼───────────────┐
+     │               │               │
+ OpenAI        Ollama Adapter   Compatible APIs
+     │               │               │
+ GPT-5.x      llama3/qwen/etc    Groq/OpenRouter/
+                                Together/vLLM/
+                                LiteLLM/LM Studio
+
+
+---
+
+AI Runtime Layers
+
+Layer 1
+
+Request Validation
+
+Checks:
+
+Authentication
+
+Organization
+
+Credits
+
+Subscription
+
+Permissions
+
+Rate limits
+
+
+
+---
+
+Layer 2
+
+Prompt Registry
+
+Never build prompts inside Python.
+
+Every prompt lives here.
+
+Example
+
+Reception Greeting
+
+Lead Qualification
+
+Appointment Booking
+
+Product Recommendation
+
+Retail Assistant
+
+Salon Consultation
+
+Barber Consultation
+
+Each has
+
+Version
+
+Variables
+
+Tags
+
+Language
+
+Status
+
+
+
+---
+
+Layer 3
+
+Memory Engine
+
+Memory Types
+
+Conversation Memory
+
+Current conversation.
+
+
+---
+
+Session Memory
+
+Last few interactions.
+
+
+---
+
+Customer Memory
+
+Past conversations.
+
+Purchases.
+
+Bookings.
+
+Preferences.
+
+
+---
+
+Organization Memory
+
+Business information.
+
+Policies.
+
+Services.
+
+Products.
+
+Knowledge.
+
+
+---
+
+AI Runtime Memory
+
+Reasoning state.
+
+Temporary tool results.
+
+Current objective.
+
+
+---
+
+Layer 4
+
+Knowledge Retrieval
+
+Before calling the LLM
+
+Search
+
+Business FAQ
+
+Products
+
+Services
+
+Policies
+
+Inventory
+
+Appointments
+
+Customer history
+
+Knowledge documents
+
+Only then build context.
+
+
+---
+
+Layer 5
+
+Tool Calling
+
+The LLM never edits the database.
+
+Instead it requests tools.
+
+Examples
+
+search_products()
+
+search_services()
+
+search_inventory()
+
+book_appointment()
+
+create_customer()
+
+create_lead()
+
+lookup_policy()
+
+check_business_hours()
+
+notify_staff()
+
+create_invoice()
+
+search_customer()
+
+escalate_human()
+
+Every tool
+
+Permission checked.
+
+Logged.
+
+Audited.
+
+
+---
+
+Layer 6
+
+Provider Router
+
+Chooses provider.
+
+Selection logic
+
+Customer Preference
+
+↓
+
+Provider Health
+
+↓
+
+Latency
+
+↓
+
+Cost
+
+↓
+
+Fallback
+
+
+---
+
+Example
+
+Customer selects
+
+OpenAI
+
+↓
+
+Unavailable
+
+↓
+
+Automatically use
+
+OpenRouter
+
+↓
+
+Unavailable
+
+↓
+
+Local Ollama
+
+↓
+
+Unavailable
+
+↓
+
+Return graceful error
+
+
+---
+
+Layer 7
+
+Response Processing
+
+Normalize everything.
+
+Regardless of provider.
+
+Always return
+
+message
+
+tool_calls
+
+citations
+
+usage
+
+model
+
+provider
+
+latency
+
+finish_reason
+
+
+---
+
+Provider Interface
+
+Every provider implements
+
+chat()
+
+stream()
+
+embeddings()
+
+models()
+
+health()
+
+count_tokens()
+
+vision()
+
+audio()
+
+images()
+
+tools()
+
+No exceptions.
+
+
+---
+
+OpenAI Compatibility
+
+Support
+
+/v1/chat/completions
+
+/v1/responses
+
+/v1/models
+
+/v1/embeddings
+
+/v1/images
+
+/v1/audio
+
+Any compatible server should work.
+
+
+---
+
+Ollama Compatibility
+
+Support
+
+/api/chat
+
+/api/generate
+
+/api/embed
+
+/api/tags
+
+/api/show
+
+Remote
+
+or
+
+Local
+
+No difference.
+
+
+---
+
+Streaming Engine
+
+Support
+
+Server Sent Events
+
+Future
+
+WebSocket
+
+Realtime
+
+Voice
+
+Streaming works identically for every provider.
+
+
+---
+
+Structured Outputs
+
+AI should produce JSON when requested.
+
+Example
+
+{
+  "intent":"appointment",
+
+  "confidence":0.96,
+
+  "service":"Hair Coloring",
+
+  "requested_time":"Tomorrow 2 PM"
+}
+
+No prompt hacks.
+
+Use native structured outputs where supported.
+
+
+---
+
+AI Function Calling
+
+Supported
+
+Tool Calling
+
+Function Calling
+
+JSON Mode
+
+Structured Output
+
+Reasoning Models
+
+Multi-step Planning
+
+Automatically adapts to provider.
+
+
+---
+
+Embeddings
+
+One abstraction.
+
+Supports
+
+OpenAI
+
+Ollama
+
+Sentence Transformers (future)
+
+vLLM
+
+Compatible APIs
+
+
+---
+
+Conversation Context Builder
+
+Instead of
+
+Conversation
+
+↓
+
+LLM
+
+Do
+
+Conversation
+
+↓
+
+Retrieve Memory
+
+↓
+
+Retrieve Knowledge
+
+↓
+
+Retrieve Customer
+
+↓
+
+Retrieve Inventory
+
+↓
+
+Retrieve Services
+
+↓
+
+Build Context
+
+↓
+
+LLM
+
+Far better quality.
+
+
+---
+
+AI Safety
+
+Before prompt
+
+Validate
+
+Permissions
+
+Credits
+
+Content
+
+Rate limits
+
+Organization
+
+
+---
+
+After response
+
+Validate
+
+Tool calls
+
+JSON
+
+Toxicity
+
+Policy
+
+Output size
+
+
+---
+
+Prompt Registry
+
+Every prompt has
+
+Name
+
+Version
+
+Description
+
+Variables
+
+Language
+
+Tags
+
+Model Preference
+
+Temperature
+
+System Prompt
+
+Examples
+
+Versioned forever.
+
+
+---
+
+Token Accounting
+
+Every request records
+
+Prompt tokens
+
+Completion tokens
+
+Latency
+
+Provider
+
+Model
+
+Credits consumed
+
+Estimated cost
+
+
+---
+
+Telemetry
+
+Collect
+
+Provider uptime
+
+Latency
+
+Failure rate
+
+Average response
+
+Tool usage
+
+Model popularity
+
+Credits
+
+Cost
+
+Reasoning duration
+
+
+---
+
+AI Event System
+
+Events
+
+PromptExecuted
+
+ToolExecuted
+
+ProviderChanged
+
+FallbackTriggered
+
+CreditsConsumed
+
+ContextBuilt
+
+KnowledgeRetrieved
+
+CustomerMemoryLoaded
+
+ConversationCompleted
+
+Admin ESA can subscribe.
+
+
+---
+
+Runtime Configuration
+
+Every organization chooses
+
+Preferred Provider
+
+Preferred Model
+
+Fallback Model
+
+Temperature
+
+Max Tokens
+
+Streaming
+
+Tool Calling
+
+Reasoning Enabled
+
+Vision Enabled
+
+
+---
+
+Future Compatibility
+
+The runtime should be ready for
+
+MCP Clients
+
+MCP Servers
+
+Multi-agent conversations
+
+Voice agents
+
+Browser agents
+
+Computer-use agents
+
+Long-running reasoning
+
+Agent-to-agent communication
+
+Offline/local inference
+
+Hybrid cloud/local routing
+
+
+without redesigning the architecture.
+
+
+---
+
+Runtime Principles
+
+1. Products never talk directly to LLM providers.
+
+
+2. All prompts are versioned and stored centrally.
+
+
+3. All AI actions are auditable.
+
+
+4. Provider choice is an implementation detail, not an application concern.
+
+
+5. Memory, knowledge, and tools are first-class citizens—not afterthoughts.
+
+
+6. Every provider must conform to a common interface.
+
+
+7. Support OpenAI-compatible endpoints and Ollama from day one.
+
+
+8. Design for future models without changing product code.

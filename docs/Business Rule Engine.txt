@@ -1,0 +1,59 @@
+Document 10
+
+Business Rule Engine
+
+
+---
+
+Purpose
+
+AI suggests.
+
+Rules decide.
+
+
+---
+
+Examples:
+
+AI:
+
+"I can book you tomorrow."
+
+Rule:
+
+Business closed Sundays.
+
+Result:
+
+Booking rejected.
+
+
+---
+
+Rules Include
+
+Business hours
+
+Staff availability
+
+Pricing
+
+Discount rules
+
+Refund policies
+
+Inventory
+
+Permissions
+
+
+---
+
+Rule Format
+
+{
+"condition":"",
+"action":"",
+"priority":""
+}

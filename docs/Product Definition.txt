@@ -1,0 +1,452 @@
+Product Definition
+
+✅ Product Vision
+
+✅ Product Specification
+
+✅ System Architecture
+
+✅ Database Design
+
+✅ API Design
+
+✅ AI Runtime
+
+✅ Reception Agent Architecture
+
+
+---
+
+Phase 2 — These Must Be Done Before Coding
+
+1. UX/UI Specification (Highest Priority)
+
+Not just mockups.
+
+Every screen.
+
+Every button.
+
+Every interaction.
+
+Every animation.
+
+Every loading state.
+
+Every empty state.
+
+Every error state.
+
+Every mobile layout.
+
+Every tablet layout.
+
+Every desktop layout.
+
+Every onboarding screen.
+
+Every settings page.
+
+Every modal.
+
+Every drawer.
+
+Every notification.
+
+Everything.
+
+This document should be so detailed that a frontend developer can build the interface without guessing.
+
+
+---
+
+2. Design System
+
+This becomes the design language for every future Carai product.
+
+Examples:
+
+Typography
+
+Color tokens
+
+Spacing scale
+
+Shadows
+
+Border radius
+
+Icons
+
+Motion
+
+Accessibility
+
+Components
+
+Forms
+
+Tables
+
+Cards
+
+Navigation
+
+Charts
+
+AI message bubbles
+
+
+Later:
+
+DevOS
+
+Atelier
+
+Admin ESA
+
+all inherit this.
+
+
+---
+
+3. Tool Framework
+
+This is probably the biggest missing piece.
+
+We already know the Reception Agent uses tools.
+
+Now define every tool.
+
+Example
+
+book_appointment()
+
+cancel_appointment()
+
+search_products()
+
+search_services()
+
+search_customer()
+
+search_inventory()
+
+create_lead()
+
+update_customer()
+
+notify_staff()
+
+Every tool should define:
+
+Description
+
+Inputs
+
+Outputs
+
+Permissions
+
+Validation
+
+Audit events
+
+Error responses
+
+Retry behavior
+
+Idempotency
+
+
+Think of this as your internal "tool SDK."
+
+
+---
+
+4. Prompt Registry
+
+Never hardcode prompts.
+
+Define:
+
+Reception Greeting
+
+Lead Qualification
+
+Retail Assistant
+
+Salon Assistant
+
+Wholesale Assistant
+
+Booking Assistant
+
+Human Escalation
+
+Complaint Handling
+
+Follow-up Messages
+
+
+Every prompt:
+
+Versioned
+
+Tested
+
+Localized
+
+Configurable
+
+
+
+---
+
+5. Business Rule Engine
+
+One thing I think will make Carai stand out is separating AI from business rules.
+
+Example:
+
+Business closes at 6 PM.
+
+↓
+
+Booking after 6 PM?
+
+↓
+
+Rule Engine
+
+↓
+
+Reject booking
+
+↓
+
+AI explains why.
+
+Never let the AI decide business rules.
+
+
+---
+
+6. Organization Templates
+
+Remember your target industries:
+
+Hair Salons
+
+Barbershops
+
+Beauty Studios
+
+Nail Salons
+
+Wholesale/Retail Stores
+
+
+Each gets:
+
+Default FAQs
+
+Suggested prompts
+
+Suggested services
+
+Suggested products
+
+Dashboard widgets
+
+AI personality defaults
+
+
+A salon shouldn't have to configure everything from scratch.
+
+
+---
+
+7. Billing & Subscription Specification
+
+Exactly define:
+
+Free
+
+Starter
+
+Professional
+
+Business
+
+Enterprise
+
+
+Also define:
+
+Credits
+
+AI usage
+
+Storage
+
+Team members
+
+API access
+
+Custom branding
+
+Integrations
+
+
+Don't leave this until launch.
+
+
+---
+
+8. Security Specification
+
+Authentication
+
+Authorization
+
+Encryption
+
+RLS
+
+API Keys
+
+Secret storage
+
+Rate limiting
+
+Backups
+
+Audit logs
+
+Security headers
+
+File validation
+
+This document becomes your security checklist.
+
+
+---
+
+9. DevOps Specification
+
+Docker
+
+CI/CD
+
+GitHub Actions
+
+Environment variables
+
+Deployments
+
+Monitoring
+
+Logging
+
+Health checks
+
+Scaling
+
+Backups
+
+Disaster recovery
+
+
+---
+
+10. Testing Specification
+
+Unit tests
+
+Integration tests
+
+API tests
+
+AI evaluation tests
+
+Load tests
+
+UI tests
+
+End-to-end tests
+
+Regression tests
+
+AI outputs should also have evaluation criteria, not just traditional software tests.
+
+
+---
+
+Phase 3 — What We Build First
+
+Once those documents exist:
+
+Sprint 1
+
+Authentication
+
+Organizations
+
+Business Profile
+
+Database
+
+Design System
+
+Basic Dashboard
+
+
+
+---
+
+Sprint 2
+
+AI Runtime
+
+Prompt Registry
+
+Conversation Engine
+
+Website Chat
+
+
+
+---
+
+Sprint 3
+
+Knowledge Base
+
+AI Responses
+
+Lead Capture
+
+
+
+---
+
+Sprint 4
+
+Appointment Booking
+
+CRM
+
+Analytics
+
+
+
+---
+
+Sprint 5
+
+Billing
+
+Production Deployment
+
+Beta Testing
