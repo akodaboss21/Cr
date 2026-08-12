@@ -36,18 +36,33 @@ class SecurityHeadersMiddleware(BaseHTTPMiddleware):
 
 
 class CSRFMiddleware(BaseHTTPMiddleware):
+    """CSRF protection middleware with exemptions for login endpoints only."""
+    EXEMPT_PATHS = [
+        "/api/v1/auth/login",
+        "/api/v1/auth/refresh",
+        "/api/v1/auth/logout",
+        "/api/v1/auth/register",
+    ]
+
     async def dispatch(self, request: Request, call_next):
+        # Skip CSRF for safe methods and exempt paths
         if request.method not in ("GET", "HEAD", "OPTIONS", "TRACE") and settings.CSRF_ENABLED:
-            if request.url.path.startswith("/api/v1/auth"):
-                return await call_next(request)
-            validate_csrf_token(request)
+            path = request.url.path
+            is_exempt = any(path.startswith(exempt) for exempt in self.EXEMPT_PATHS)
+            
+            if not is_exempt:
+                validate_csrf_token(request)
 
         return await call_next(request)
 
 
 class RateLimitMiddleware(BaseHTTPMiddleware):
+    """Rate limiting per IP and per organization with lower limits for public agent endpoints."""
     _requests: Dict[str, Deque[float]] = defaultdict(deque)
     _requests_org: Dict[str, Deque[float]] = defaultdict(deque)
+    
+    # Higher limits for authenticated endpoints, lower for public agent/widget endpoints
+    PUBLIC_AGENT_PATHS = ["/api/v1/agent/message", "/api/v1/agent/stream"]
 
     async def dispatch(self, request: Request, call_next):
         client_ip = get_client_ip(request)
@@ -58,10 +73,14 @@ class RateLimitMiddleware(BaseHTTPMiddleware):
         while timestamps and timestamps[0] < window_start:
             timestamps.popleft()
 
-        if len(timestamps) >= settings.RATE_LIMIT_REQUESTS:
+        # IP-based rate limiting - stricter on public endpoints
+        is_public_agent = any(request.url.path.startswith(path) for path in self.PUBLIC_AGENT_PATHS)
+        ip_limit = settings.RATE_LIMIT_REQUESTS_PUBLIC if is_public_agent else settings.RATE_LIMIT_REQUESTS
+        
+        if len(timestamps) >= ip_limit:
             logger.warning(
-                "Rate limit exceeded",
-                extra={"client_ip": client_ip, "path": request.url.path}
+                "IP rate limit exceeded",
+                extra={"client_ip": client_ip, "path": request.url.path, "endpoint_type": "public" if is_public_agent else "default"}
             )
             raise HTTPException(
                 status_code=HTTP_429_TOO_MANY_REQUESTS,
@@ -77,7 +96,8 @@ class RateLimitMiddleware(BaseHTTPMiddleware):
             token = authorization_header.split(" ", 1)[1]
             try:
                 payload = decode_token(token)
-                org_id = payload.get("org_id")
+                if payload.get("type") == "access":  # Verify token type
+                    org_id = payload.get("org_id")
             except Exception:
                 org_id = None
 
@@ -97,10 +117,11 @@ class RateLimitMiddleware(BaseHTTPMiddleware):
             while org_timestamps and org_timestamps[0] < window_start:
                 org_timestamps.popleft()
 
-            if len(org_timestamps) >= settings.RATE_LIMIT_REQUESTS_ORG:
+            org_limit = settings.RATE_LIMIT_REQUESTS_ORG_PUBLIC if is_public_agent else settings.RATE_LIMIT_REQUESTS_ORG
+            if len(org_timestamps) >= org_limit:
                 logger.warning(
-                    "Org rate limit exceeded",
-                    extra={"organization_id": org_id, "path": request.url.path}
+                    "Organization rate limit exceeded",
+                    extra={"organization_id": org_id, "path": request.url.path, "endpoint_type": "public" if is_public_agent else "default"}
                 )
                 raise HTTPException(
                     status_code=HTTP_429_TOO_MANY_REQUESTS,
@@ -112,6 +133,9 @@ class RateLimitMiddleware(BaseHTTPMiddleware):
 
 
 class RequestValidationMiddleware(BaseHTTPMiddleware):
+    """Validate request content-type and body size to prevent abuse."""
+    MAX_BODY_SIZE = 10 * 1024 * 1024  # 10MB limit
+
     async def dispatch(self, request: Request, call_next):
         if request.method not in ("GET", "HEAD", "OPTIONS", "TRACE"):
             content_type = request.headers.get("content-type", "")
@@ -120,6 +144,22 @@ class RequestValidationMiddleware(BaseHTTPMiddleware):
                     status_code=HTTP_400_BAD_REQUEST,
                     detail="Unsupported Content-Type. Use application/json or multipart/form-data."
                 )
+            
+            # Check Content-Length header
+            content_length = request.headers.get("content-length")
+            if content_length:
+                try:
+                    size = int(content_length)
+                    if size > self.MAX_BODY_SIZE:
+                        raise HTTPException(
+                            status_code=413,
+                            detail="Payload too large. Maximum 10MB allowed."
+                        )
+                except ValueError:
+                    raise HTTPException(
+                        status_code=HTTP_400_BAD_REQUEST,
+                        detail="Invalid Content-Length header"
+                    )
 
         return await call_next(request)
 

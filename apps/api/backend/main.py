@@ -42,8 +42,9 @@ app.add_middleware(
     allow_origins=allowed_origins,
     allow_credentials=True,
     allow_methods=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    allow_headers=["Authorization", "Content-Type", "X-Requested-With", "X-CSRF-Token", "X-Request-ID"],
-    expose_headers=["X-Request-ID"],
+    allow_headers=["Authorization", "Content-Type", "X-Requested-With", "X-CSRF-Token", "X-Request-ID", "X-Widget-Token", "X-Widget-Api-Key"],
+    expose_headers=["X-Request-ID", "X-RateLimit-Limit", "X-RateLimit-Remaining"],
+    max_age=3600,  # Preflight cache duration
 )
 
 app.add_middleware(AuditMiddleware)

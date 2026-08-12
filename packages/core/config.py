@@ -45,7 +45,10 @@ class Settings(BaseSettings):
     WIDGET_API_KEY: Optional[str] = None
     WIDGET_SIGNING_SECRET: Optional[str] = None
     RATE_LIMIT_REQUESTS: int = 100
+    RATE_LIMIT_REQUESTS_PUBLIC: int = 30  # Stricter limit for public/unauthenticated endpoints
     RATE_LIMIT_WINDOW_SECONDS: int = 60
+    RATE_LIMIT_REQUESTS_ORG: int = 500  # Per-organization limit (authenticated)
+    RATE_LIMIT_REQUESTS_ORG_PUBLIC: int = 100  # Per-organization limit for public agent endpoints
     CSRF_ENABLED: bool = True
     MAX_INPUT_LENGTH: int = 10000
 

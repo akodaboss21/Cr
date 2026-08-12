@@ -27,7 +27,12 @@ from packages.core.config import settings
 from packages.core.database import get_db
 from packages.core.identity.business.models import BusinessProfile
 from packages.core.identity.knowledge.models import Knowledge
-from packages.core.security import decode_token, sanitize_input, detect_prompt_injection
+from packages.core.security import (
+    decode_token,
+    decode_widget_token,
+    sanitize_input,
+    detect_prompt_injection,
+)
 
 router = APIRouter(prefix="/agent", tags=["agent"])
 
@@ -97,46 +102,55 @@ def _build_business_context(db: Session, organization_id: str) -> Dict[str, Any]
 
 
 def _resolve_widget_context(request: Request, payload: Dict[str, Any], db: Session) -> WidgetAuthContext:
+    """Resolve widget authentication context from headers, JWT token, or request payload.
+    
+    Priority order:
+    1. X-Widget-Token header (preferred: JWT-based short-lived token)
+    2. X-Widget-Api-Key header (legacy: static API key)
+    3. Fallback to business_id -> organization lookup
+    """
     context = WidgetAuthContext()
 
     if payload.get("business_id"):
         context.business_id = payload["business_id"]
 
-    header_api_key = request.headers.get("x-widget-api-key") or request.headers.get("X-Widget-Api-Key")
+    # 1. Try X-Widget-Token header first (JWT)
     header_token = request.headers.get("x-widget-token") or request.headers.get("X-Widget-Token")
+    if header_token:
+        try:
+            claims = decode_widget_token(header_token)
+            context.organization_id = claims.get("organization_id")
+            context.customer_id = claims.get("customer_id")
+            context.business_id = context.business_id or claims.get("business_id")
+            return context
+        except HTTPException:
+            raise
 
+    # 2. Try X-Widget-Api-Key header (legacy static key)
+    header_api_key = request.headers.get("x-widget-api-key") or request.headers.get("X-Widget-Api-Key")
     if header_api_key:
         if settings.WIDGET_API_KEY and header_api_key == settings.WIDGET_API_KEY:
             return context
         raise HTTPException(status_code=401, detail="Invalid widget API key")
 
-    if header_token:
+    # 3. Try payload widget_token (for SSE/streaming where headers might be limited)
+    if payload.get("widget_token"):
         try:
-            secret = settings.WIDGET_SIGNING_SECRET or settings.SECRET_KEY
-            claims = jwt.decode(header_token, secret, algorithms=["HS256"])
-            context.organization_id = claims.get("organization_id") or claims.get("org_id")
-            context.customer_id = claims.get("customer_id") or claims.get("sub")
+            claims = decode_widget_token(payload["widget_token"])
+            context.organization_id = claims.get("organization_id")
+            context.customer_id = claims.get("customer_id")
             context.business_id = context.business_id or claims.get("business_id")
             return context
-        except Exception as exc:
-            raise HTTPException(status_code=401, detail="Invalid widget token") from exc
+        except HTTPException:
+            raise
 
+    # 4. Fallback: payload widget_api_key
     if payload.get("widget_api_key"):
         if settings.WIDGET_API_KEY and payload["widget_api_key"] == settings.WIDGET_API_KEY:
             return context
         raise HTTPException(status_code=401, detail="Invalid widget API key")
 
-    if payload.get("widget_token"):
-        try:
-            secret = settings.WIDGET_SIGNING_SECRET or settings.SECRET_KEY
-            claims = jwt.decode(payload["widget_token"], secret, algorithms=["HS256"])
-            context.organization_id = claims.get("organization_id") or claims.get("org_id")
-            context.customer_id = claims.get("customer_id") or claims.get("sub")
-            context.business_id = context.business_id or claims.get("business_id")
-            return context
-        except Exception as exc:
-            raise HTTPException(status_code=401, detail="Invalid widget token") from exc
-
+    # 5. Resolve via business_id -> lookup organization
     if context.business_id:
         business = db.query(BusinessProfile).filter(BusinessProfile.id == context.business_id).first()
         if business:
@@ -257,19 +271,34 @@ async def create_agent_message(
     payload: AgentMessageRequest,
     db: Session = Depends(get_db),
 ):
-    """Run the full reception-agent pipeline for a public or widget-authenticated chat request."""
+    """Run the full reception-agent pipeline for a public or widget-authenticated chat request.
+    
+    Supports:
+    - Widget tokens (X-Widget-Token header or widget_token in payload)
+    - Widget API keys (X-Widget-Api-Key header or widget_api_key in payload)
+    - User JWT tokens (Authorization: Bearer <token>)
+    """
     auth_context: Optional[Dict[str, Any]] = None
     auth_header = request.headers.get("authorization", "")
     if auth_header.startswith("Bearer "):
         try:
             token = auth_header.split(" ", 1)[1]
             claims = decode_token(token)
+            # Validate token type - must be access token
+            if claims.get("type") != "access":
+                raise HTTPException(
+                    status_code=401,
+                    detail="Invalid token type. Must be an access token."
+                )
             auth_context = {
                 "user_id": claims.get("sub"),
                 "organization_id": claims.get("org_id"),
+                "token_type": "access",
             }
         except HTTPException:
             raise
+        except Exception as e:
+            raise HTTPException(status_code=401, detail="Invalid authorization token") from e
 
     agent, response, conversation_id = await _run_agent_pipeline(payload.model_dump(), request, db, auth_context)
     payload_dict = {
@@ -290,19 +319,34 @@ async def stream_agent_message(
     payload: AgentMessageRequest,
     db: Session = Depends(get_db),
 ):
-    """Stream reception-agent tokens over SSE for public or widget-authenticated chat requests."""
+    """Stream reception-agent tokens over SSE for public or widget-authenticated chat requests.
+    
+    Supports:
+    - Widget tokens (X-Widget-Token header or widget_token in payload)
+    - Widget API keys (X-Widget-Api-Key header or widget_api_key in payload)
+    - User JWT tokens (Authorization: Bearer <token>)
+    """
     auth_context: Optional[Dict[str, Any]] = None
     auth_header = request.headers.get("authorization", "")
     if auth_header.startswith("Bearer "):
         try:
             token = auth_header.split(" ", 1)[1]
             claims = decode_token(token)
+            # Validate token type - must be access token
+            if claims.get("type") != "access":
+                raise HTTPException(
+                    status_code=401,
+                    detail="Invalid token type. Must be an access token."
+                )
             auth_context = {
                 "user_id": claims.get("sub"),
                 "organization_id": claims.get("org_id"),
+                "token_type": "access",
             }
         except HTTPException:
             raise
+        except Exception as e:
+            raise HTTPException(status_code=401, detail="Invalid authorization token") from e
 
     _, generator, conversation_id = await _stream_agent_pipeline(payload.model_dump(), request, db, auth_context)
     return StreamingResponse(generator, media_type="text/event-stream")

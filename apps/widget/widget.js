@@ -162,21 +162,33 @@ class CaraiWidget {
 
     getHeaders() {
         const headers = {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest',  // Prevent CSRF
         };
 
+        // Priority 1: Widget Token (short-lived JWT)
+        const widgetToken = this.getWidgetToken();
+        if (widgetToken) {
+            headers['x-widget-token'] = widgetToken;
+            return headers;  // Widget token takes precedence
+        }
+
+        // Priority 2: Widget API Key
+        const widgetApiKey = this.getWidgetApiKey();
+        if (widgetApiKey) {
+            headers['x-widget-api-key'] = widgetApiKey;
+            return headers;
+        }
+
+        // Priority 3: User auth token (if logged in)
         if (this.config.authToken) {
             headers['Authorization'] = `Bearer ${this.config.authToken}`;
         }
 
-        const widgetToken = this.getWidgetToken();
-        if (widgetToken) {
-            headers['x-widget-token'] = widgetToken;
-        }
-
-        const widgetApiKey = this.getWidgetApiKey();
-        if (widgetApiKey) {
-            headers['x-widget-api-key'] = widgetApiKey;
+        // Add CSRF token if available (for state-changing requests)
+        const csrfToken = this.getCookie('csrf_token');
+        if (csrfToken) {
+            headers['x-csrf-token'] = csrfToken;
         }
 
         return headers;
@@ -242,16 +254,24 @@ class CaraiWidget {
     }
 
     validateMessage(message) {
+        // Validate message is not empty and within size limits
+        if (!message || message.trim().length === 0) {
+            this.addMessage('Message cannot be empty. Please type something.', 'assistant');
+            return false;
+        }
+        
         if (!this.checkRateLimit()) {
             this.addMessage('You\'re sending messages too quickly. Please wait a moment.', 'assistant');
             return false;
         }
 
-        if (message.length > 1000) {
-            this.addMessage('Message too long. Please keep it under 1000 characters.', 'assistant');
+        // Stricter size limit for security
+        if (message.length > 4000) {
+            this.addMessage('Message too long. Please keep it under 4000 characters.', 'assistant');
             return false;
         }
 
+        // Basic content validation
         if (this.containsInappropriateContent(message)) {
             this.addMessage('I\'m sorry, I can\'t help with that. Please ask something else.', 'assistant');
             return false;

@@ -233,12 +233,72 @@ def require_role(role: str):
     return role_checker
 
 
+def create_widget_token(organization_id: str, business_id: Optional[str] = None, customer_id: Optional[str] = None, expires_delta: Optional[timedelta] = None) -> str:
+    """Create a short-lived widget authentication token (typically 1 hour)"""
+    to_encode = {
+        "organization_id": organization_id,
+        "type": "widget",
+    }
+    
+    if business_id:
+        to_encode["business_id"] = business_id
+    if customer_id:
+        to_encode["customer_id"] = customer_id
+    
+    if expires_delta:
+        expire = datetime.utcnow() + expires_delta
+    else:
+        # Widget tokens default to 1 hour lifespan
+        expire = datetime.utcnow() + timedelta(hours=1)
+    
+    to_encode.update({"exp": expire})
+    secret = settings.WIDGET_SIGNING_SECRET or settings.SECRET_KEY
+    return jwt.encode(to_encode, secret, algorithm="HS256")
+
+
+def decode_widget_token(token: str) -> Dict[str, Any]:
+    """Decode and validate a widget token"""
+    try:
+        secret = settings.WIDGET_SIGNING_SECRET or settings.SECRET_KEY
+        payload = jwt.decode(token, secret, algorithms=["HS256"])
+        
+        if payload.get("type") != "widget":
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail="Invalid token type",
+                headers={"WWW-Authenticate": "Bearer"},
+            )
+        
+        return payload
+    except JWTError:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Could not validate widget token",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+
+
 def validate_csrf_token(request: Request) -> None:
-    """Validate CSRF token for state-changing requests"""
+    """Validate CSRF token for state-changing requests - stricter validation"""
     csrf_header = request.headers.get("x-csrf-token")
     csrf_cookie = request.cookies.get("csrf_token")
-    if not csrf_header or not csrf_cookie or csrf_header != csrf_cookie:
+    
+    # Both must exist and match exactly
+    if not csrf_header or not csrf_cookie:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Missing CSRF token"
+        )
+    
+    if csrf_header != csrf_cookie:
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
             detail="Invalid CSRF token"
+        )
+    
+    # Token should not be empty
+    if len(csrf_header.strip()) < 16:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="CSRF token too short"
         )
